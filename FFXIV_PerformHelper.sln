@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIV_PerformHelper", "FFXIV_PerformHelper\FFXIV_PerformHelper.csproj", "{3A11497C-5FA6-4A9B-9A76-487DE1FF516A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A11497C-5FA6-4A9B-9A76-487DE1FF516A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A11497C-5FA6-4A9B-9A76-487DE1FF516A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A11497C-5FA6-4A9B-9A76-487DE1FF516A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A11497C-5FA6-4A9B-9A76-487DE1FF516A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57BAA678-1D98-4424-A528-E81D62FFE7AD}
+	EndGlobalSection
+EndGlobal
