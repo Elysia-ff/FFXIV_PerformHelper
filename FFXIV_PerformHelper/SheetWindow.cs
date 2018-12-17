@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -84,27 +83,18 @@ namespace FFXIV_PerformHelper
                             continue;
 
                         int startPixel = GetPixel(notes[i].startTime);
-                        if (startPixel < 0)
-                            continue;
-                        if (startPixel > Height)
-                            startPixel = Height;
-
                         int endPixel = GetPixel(notes[i].endTime);
-                        if (endPixel > Height)
-                            continue;
-                        if (endPixel < 0)
-                            endPixel = 0;
 
-                        if (startPixel == 0 && endPixel == 0)
+                        if (!ValidatePixel(ref startPixel, ref endPixel))
                             continue;
-                        if (startPixel == Height && endPixel == Height)
+
+                        if (i >= notes.Count - 1)
                         {
-                            if (i >= notes.Count - 1)
+                            if (IsEndOfSheet(startPixel, endPixel))
                             {
                                 player.Stop();
                                 return;
                             }
-                            continue;
                         }
 
                         int idx = (int)notes[i].code;
@@ -114,6 +104,31 @@ namespace FFXIV_PerformHelper
 
                 DrawMoveRect(g);
             }
+        }
+
+        private bool ValidatePixel(ref int startPixel, ref int endPixel)
+        {
+            if (startPixel < 0)
+                return false;
+            if (startPixel > Height)
+                startPixel = Height;
+
+            if (endPixel > Height)
+                return false;
+            if (endPixel < 0)
+                endPixel = 0;
+
+            if (startPixel == 0 && endPixel == 0)
+                return false;
+            if (startPixel == Height && endPixel == Height)
+                return false;
+
+            return true;
+        }
+
+        private bool IsEndOfSheet(int startPixel, int endPixel)
+        {
+            return startPixel == Height && endPixel == Height;
         }
 
         private void DrawMoveRect(Graphics g)
@@ -145,8 +160,6 @@ namespace FFXIV_PerformHelper
         private void DrawText(Graphics g, int idx)
         {
             Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
-            rect.Inflate(0, 0);
-
             StringFormat sf = new StringFormat
             {
                 LineAlignment = StringAlignment.Far,
@@ -176,7 +189,7 @@ namespace FFXIV_PerformHelper
         private void DrawBar(Graphics g, int idx, int startPixel, int endPixel, string code)
         {
             int h = startPixel - endPixel;
-            Rectangle rect = new Rectangle(barX[idx], endPixel, width, h);
+            Rectangle rect = new Rectangle(barX[idx], endPixel, width, h - penWitdh);
             SolidBrush b = new SolidBrush(Color.FromArgb(0x8, 0x2c, 0x52));
             g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
 
@@ -185,8 +198,6 @@ namespace FFXIV_PerformHelper
                 LineJoin = LineJoin.Bevel
             };
             g.DrawRectangle(framePen, rect.X, rect.Y, rect.Width, rect.Height);
-
-            rect.Inflate(0, 0);
 
             StringFormat sf = new StringFormat
             {
@@ -224,8 +235,6 @@ namespace FFXIV_PerformHelper
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-
-                Debug.Write(string.Format("{0} {1}", this.Top, this.Left));
             }
         }
     }

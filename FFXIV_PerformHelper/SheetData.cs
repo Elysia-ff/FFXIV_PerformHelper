@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +14,6 @@ namespace FFXIV_PerformHelper
         public class Note
         {
             public readonly MusicDefine.Code code;
-            public readonly string step;
             public readonly int alter;
             public readonly int octave;
             public readonly double duration;
@@ -36,14 +34,13 @@ namespace FFXIV_PerformHelper
                 }
 
                 code = (MusicDefine.Code)codeIdx;
-                step = (codeIdx >= MusicDefine.CodeStr.Length) ? step = code.ToString() : MusicDefine.CodeStr[codeIdx];
                 alter = _alter;
                 octave = _octave;
                 duration = _duration;
-                str = MakeStr();
+                str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
             }
 
-            private string MakeStr()
+            private string MakeStr(string step)
             {
                 StringBuilder stringBuilder = new StringBuilder();
 
@@ -66,9 +63,6 @@ namespace FFXIV_PerformHelper
         public int bpm;
         public List<Note> notes;
 
-        public int Count { get { return notes.Count; } }
-        public Note this[int i] { get { return notes[i]; } }
-
         public SheetData()
         {
             notes = new List<Note>();
@@ -87,8 +81,6 @@ namespace FFXIV_PerformHelper
                     notes[i].startTime += startTime;
                 notes[i].endTime = notes[i].startTime + (beatTime * notes[i].duration);
                 t = notes[i].endTime;
-
-                Debug.WriteLine(string.Format("start : {0}\t\tend : {1}", notes[i].startTime, notes[i].endTime));
             }
         }
     }

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Elysia-ff")]
 [assembly: AssemblyProduct("FFXIV_PerformHelper")]
-[assembly: AssemblyCopyright("Copyright ©  2018 Elysia-ff")]
+[assembly: AssemblyCopyright("Copyright © 2018 Elysia-ff")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
