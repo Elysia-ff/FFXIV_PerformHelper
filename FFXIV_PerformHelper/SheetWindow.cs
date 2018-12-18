@@ -23,8 +23,6 @@ namespace FFXIV_PerformHelper
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private int moveRectHeight = 20;
-        private int penWitdh = 1;
         private int width = 40;
         private int[] barX = new int[(int)MusicDefine.Code.Count]
         {
@@ -134,91 +132,56 @@ namespace FFXIV_PerformHelper
         private void DrawMoveRect(Graphics g)
         {
             Rectangle rect = new Rectangle(0, 0, Width - penWitdh, moveRectHeight + penWitdh);
-            SolidBrush b = new SolidBrush(Color.Black);
-            g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
-
-            Pen framePen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
-            {
-                LineJoin = LineJoin.Bevel
-            };
-            g.DrawRectangle(framePen, rect.X, rect.Y, rect.Width, rect.Height);
+            g.FillRectangle(moveRectBrush, rect.X, rect.Y, rect.Width, rect.Height);
+            g.DrawRectangle(moveRectPen, rect.X, rect.Y, rect.Width, rect.Height);
         }
 
         private void DrawBackground(Graphics g, int idx)
         {
             Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
-            SolidBrush b = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
-            g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
-
-            Pen framePen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
-            {
-                LineJoin = LineJoin.Bevel
-            };
-            g.DrawRectangle(framePen, rect.X, rect.Y, rect.Width, rect.Height);
+            g.FillRectangle(backgroundBrush, rect.X, rect.Y, rect.Width, rect.Height);
+            g.DrawRectangle(backgroundPen, rect.X, rect.Y, rect.Width, rect.Height);
         }
 
         private void DrawText(Graphics g, int idx)
         {
             Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
-            StringFormat sf = new StringFormat
-            {
-                LineAlignment = StringAlignment.Far,
-                Alignment = StringAlignment.Center
-            };
-
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.SmoothingMode = SmoothingMode.HighQuality;
 
             Font f = Font;
-            GraphicsPath path = new GraphicsPath();
-            string value = MusicDefine.CodeStr[idx];
-            path.AddString(value, f.FontFamily, (int)f.Style, f.Height, rect, sf);
-
-            Pen p = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWitdh)
+            using (GraphicsPath path = new GraphicsPath())
             {
-                LineJoin = LineJoin.Round
-            };
-            g.DrawPath(p, path);
-            g.FillPath(Brushes.White, path);
-            g.SmoothingMode = SmoothingMode.Default;
+                string value = MusicDefine.CodeStr[idx];
+                path.AddString(value, f.FontFamily, (int)f.Style, f.Height, rect, stringFormat);
 
-            p.Dispose();
-            path.Dispose();
+                g.DrawPath(textPen, path);
+                g.FillPath(Brushes.White, path);
+
+                g.TextRenderingHint = TextRenderingHint.SystemDefault;
+                g.SmoothingMode = SmoothingMode.Default;
+            }
         }
 
         private void DrawBar(Graphics g, int idx, int startPixel, int endPixel, string code)
         {
             int h = startPixel - endPixel;
             Rectangle rect = new Rectangle(barX[idx], endPixel, width, h - penWitdh);
-            SolidBrush b = new SolidBrush(Color.FromArgb(0x8, 0x2c, 0x52));
-            g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
-
-            Pen framePen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
-            {
-                LineJoin = LineJoin.Bevel
-            };
-            g.DrawRectangle(framePen, rect.X, rect.Y, rect.Width, rect.Height);
-
-            StringFormat sf = new StringFormat
-            {
-                LineAlignment = StringAlignment.Far,
-                Alignment = StringAlignment.Center
-            };
-
+            g.FillRectangle(barBrush, rect.X, rect.Y, rect.Width, rect.Height);
+            g.DrawRectangle(barPen, rect.X, rect.Y, rect.Width, rect.Height);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.SmoothingMode = SmoothingMode.HighQuality;
 
             Font f = Font;
-            GraphicsPath path = new GraphicsPath();
-            path.AddString(code, f.FontFamily, (int)f.Style, f.Height, rect, sf);
-
-            Pen p = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWitdh)
+            using (GraphicsPath path = new GraphicsPath())
             {
-                LineJoin = LineJoin.Round
-            };
-            g.DrawPath(p, path);
-            g.FillPath(Brushes.White, path);
-            g.SmoothingMode = SmoothingMode.Default;
+                path.AddString(code, f.FontFamily, (int)f.Style, f.Height, rect, stringFormat);
+                g.DrawPath(barTextPen, path);
+                g.FillPath(Brushes.White, path);
+
+                g.TextRenderingHint = TextRenderingHint.SystemDefault;
+                g.SmoothingMode = SmoothingMode.Default;
+            }
         }
 
         private int GetPixel(double time)
