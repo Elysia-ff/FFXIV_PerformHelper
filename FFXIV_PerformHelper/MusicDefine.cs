@@ -48,6 +48,36 @@ namespace FFXIV_PerformHelper
             "B"
         };
 
+        public enum Alter
+        {
+            None,
+            Sharp,
+            Flat,
+        }
+
+        public static string[] AlterStr =
+        {
+            "  ",
+            "＃",
+            "♭",
+        };
+
+        public enum Octave
+        {
+            Default,
+            Up,
+            Down,
+            DoubleUp,
+        }
+
+        public static string[] OctaveStr =
+        {
+            "  ",
+            "↑",
+            "↓",
+            "↑↑",
+        };
+
         public static Code[] SharpOrder =
         {
             Code.F,

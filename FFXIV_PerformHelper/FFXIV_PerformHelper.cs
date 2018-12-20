@@ -18,6 +18,7 @@ namespace FFXIV_PerformHelper
         private SheetReader xmlReader;
         private SheetData sheetData;
         public List<SheetData.Note> GetNotes() { return sheetData.notes; }
+        public SheetData.Note GetNote(int idx) { return sheetData.notes[idx]; }
 
         public bool IsPlaying { get; private set; }
         public double ElapsedTime { get; private set; }
@@ -28,6 +29,7 @@ namespace FFXIV_PerformHelper
         public FFXIV_PerformHelper()
         {
             TimeManager = new TimeManager();
+            fileDialog = new OpenFileDialog();
             sheetWindow = new SheetWindow(this)
             {
                 Top = 398,
@@ -36,32 +38,9 @@ namespace FFXIV_PerformHelper
             sheetWindow.Show();
 
             InitializeComponent();
+            InitializeItems();
 
-            Shown += FFXIV_PerformHelper_Shown;
             TimeManager.OnUpdate += TimeManager_OnUpdate;
-        }
-
-        private void FFXIV_PerformHelper_Shown(object sender, EventArgs e)
-        {
-            //try
-            {
-                fileDialog = new OpenFileDialog();
-                if (fileDialog.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
-
-                xmlReader = new SheetReader();
-                xmlReader.Initialize(fileDialog.FileName);
-                sheetData = xmlReader.Read();
-                sheetData.Apply(startTime);
-
-                Play();
-            }
-            //catch (Exception error)
-            //{
-            //    label1.Text = error.ToString();
-            //}
         }
 
         public void Play()
@@ -86,6 +65,40 @@ namespace FFXIV_PerformHelper
 
             if (IsPlaying)
                 ElapsedTime += TimeManager.DeltaTime;
+        }
+
+        private void BrowseBtn_Click(object sender, EventArgs e)
+        {
+            if (fileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            try
+            {
+                directoryText.Text = fileDialog.FileName;
+                xmlReader = new SheetReader();
+                xmlReader.Initialize(fileDialog.FileName);
+                sheetData = xmlReader.Read();
+                sheetData.Apply(startTime);
+
+                DrawInfo();
+            }
+            catch
+            {
+            }
+        }
+
+        private void DrawInfo()
+        {
+            nameText.Text = sheetData.name;
+            bpmText.Text = sheetData.bpm.ToString();
+
+            List<SheetData.Note> notes = GetNotes();
+            for (int i = 0; i < notes.Count; i++)
+            {
+                codeList.Items.Add(notes[i].str);
+            }
         }
     }
 }

@@ -13,9 +13,10 @@ namespace FFXIV_PerformHelper
     {
         public class Note
         {
+            public readonly MusicDefine.Code baseCode;
             public readonly MusicDefine.Code code;
-            public readonly int alter;
-            public readonly int octave;
+            public readonly MusicDefine.Alter alter;
+            public readonly MusicDefine.Octave octave;
             public readonly double duration;
             public readonly string str;
 
@@ -25,17 +26,51 @@ namespace FFXIV_PerformHelper
             public Note(int _step, int _alter, int _octave, double _duration)
             {
                 int codeIdx = _step;
-                if (_alter != 0)
+
+                #region BaseCode
+                baseCode = (MusicDefine.Code)codeIdx;
+                #endregion
+
+                #region Alter
+                if (_alter == 0)
                 {
-                    int count = Math.Abs(_alter);
-                    int mark = (_alter > 0) ? count : -count;
-
-                    codeIdx += mark;
+                    alter = MusicDefine.Alter.None;
                 }
+                else
+                {
+                    if (_alter > 0)
+                    {
+                        codeIdx += 1;
+                        alter = MusicDefine.Alter.Sharp;
+                    }
+                    else
+                    {
+                        codeIdx -= 1;
+                        alter = MusicDefine.Alter.Flat;
+                    }
+                }
+                #endregion
 
+                #region Code
                 code = (MusicDefine.Code)codeIdx;
-                alter = _alter;
-                octave = _octave;
+                #endregion
+
+                #region Octave
+                if (_octave == 0)
+                {
+                    octave = MusicDefine.Octave.Default;
+                }
+                else
+                {
+                    if (_octave > 1)
+                        octave = MusicDefine.Octave.DoubleUp;
+                    else if (_octave > 0)
+                        octave = MusicDefine.Octave.Up;
+                    else
+                        octave = MusicDefine.Octave.Down;
+                }
+                #endregion
+
                 duration = _duration;
                 str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
             }
@@ -44,13 +79,10 @@ namespace FFXIV_PerformHelper
             {
                 StringBuilder stringBuilder = new StringBuilder();
 
-                if (octave != 0)
+                if (octave != MusicDefine.Octave.Default)
                 {
-                    char mark = (octave > 0) ? MusicDefine.Up : MusicDefine.Down;
-                    int count = Math.Abs(octave);
-
-                    for (int i = 0; i < count; i++)
-                        stringBuilder.Append(mark);
+                    string mark = MusicDefine.OctaveStr[(int)octave];
+                    stringBuilder.Append(mark);
                 }
 
                 stringBuilder.Append(step);
