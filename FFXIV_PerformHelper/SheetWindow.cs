@@ -106,20 +106,15 @@ namespace FFXIV_PerformHelper
 
         private bool ValidatePixel(ref int startPixel, ref int endPixel)
         {
-            if (startPixel < 0)
+            if (startPixel <= 0)
                 return false;
             if (startPixel > Height)
                 startPixel = Height;
 
-            if (endPixel > Height)
+            if (endPixel >= Height)
                 return false;
             if (endPixel < 0)
                 endPixel = 0;
-
-            if (startPixel == 0 && endPixel == 0)
-                return false;
-            if (startPixel == Height && endPixel == Height)
-                return false;
 
             return true;
         }

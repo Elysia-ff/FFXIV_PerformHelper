@@ -10,8 +10,6 @@ namespace FFXIV_PerformHelper
 {
     public partial class FFXIV_PerformHelper : Form
     {
-        private static object lockObject = new object();
-
         public TimeManager TimeManager { get; private set; }
         private OpenFileDialog fileDialog;
         private SheetWindow sheetWindow;
