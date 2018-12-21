@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <MusicName>Rhalgr's Reach Theme</MusicName>
   <Attribute>
+    <MusicName>Rhalgr's Reach Theme</MusicName>
     <BPM>80</BPM>
   </Attribute>
   <Data>

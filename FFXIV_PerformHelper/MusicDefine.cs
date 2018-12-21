@@ -64,6 +64,14 @@ namespace FFXIV_PerformHelper
             "↑↑",
         };
 
+        public static int[] OctaveInt =
+        {
+            0,
+            1,
+            -1,
+            2,
+        };
+
         public static Code[] SharpOrder =
         {
             Code.F,

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace FFXIV_PerformHelper
 {
@@ -12,8 +13,12 @@ namespace FFXIV_PerformHelper
     {
         public TimeManager TimeManager { get; private set; }
         private OpenFileDialog fileDialog;
+
         private SheetWindow sheetWindow;
-        private SheetReader xmlReader;
+
+        private XmlDocument loadedXML;
+        private SheetManager sheetManager;
+
         private SheetData sheetData;
         public List<SheetData.Note> GetNotes() { return sheetData.notes; }
         public SheetData.Note GetNote(int idx) { return sheetData.notes[idx]; }
@@ -34,6 +39,8 @@ namespace FFXIV_PerformHelper
                 Left = 759
             };
             sheetWindow.Show();
+            loadedXML = new XmlDocument();
+            sheetManager = new SheetManager();
 
             InitializeComponent();
             InitializeItems();
@@ -72,19 +79,18 @@ namespace FFXIV_PerformHelper
                 return;
             }
 
-            try
-            {
+            //try
+            //{
                 directoryText.Text = fileDialog.FileName;
-                xmlReader = new SheetReader();
-                xmlReader.Initialize(fileDialog.FileName);
-                sheetData = xmlReader.Read();
+                loadedXML.Load(fileDialog.FileName);
+                sheetData = sheetManager.Read(loadedXML);
                 sheetData.Apply(startTime);
 
                 DrawInfo();
-            }
-            catch
-            {
-            }
+            //}
+            //catch
+            //{
+            //}
         }
 
         private void DrawInfo()

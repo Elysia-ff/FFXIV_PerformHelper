@@ -70,7 +70,7 @@
     </Compile>
     <Compile Include="TimeManager.cs" />
     <Compile Include="XmlDefine.cs" />
-    <Compile Include="SheetReader.cs" />
+    <Compile Include="SheetManager.cs" />
     <EmbeddedResource Include="FFXIV_PerformHelper.resx">
       <DependentUpon>FFXIV_PerformHelper.cs</DependentUpon>
     </EmbeddedResource>
