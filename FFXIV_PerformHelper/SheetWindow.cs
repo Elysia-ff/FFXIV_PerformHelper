@@ -69,7 +69,8 @@ namespace FFXIV_PerformHelper
                 for (int i = 0; i < (int)MusicDefine.Code.Count; i++)
                 {
                     DrawBackground(g, i);
-                    DrawText(g, i);
+                    if (!player.IsPlaying)
+                        DrawText(g, i);
                 }
 
                 if (player.IsPlaying)
@@ -170,7 +171,8 @@ namespace FFXIV_PerformHelper
             Font f = Font;
             using (GraphicsPath path = new GraphicsPath())
             {
-                path.AddString(code, f.FontFamily, (int)f.Style, f.Height, rect, stringFormat);
+                Rectangle stringRect = new Rectangle(barX[idx], startPixel - f.Height, width, f.Height);
+                path.AddString(code, f.FontFamily, (int)f.Style, f.Height, stringRect, stringFormat);
                 g.DrawPath(barTextPen, path);
                 g.FillPath(Brushes.White, path);
 
