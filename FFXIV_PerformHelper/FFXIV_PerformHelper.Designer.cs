@@ -44,6 +44,7 @@ namespace FFXIV_PerformHelper
             this.octaveComboBox = new System.Windows.Forms.ComboBox();
             this.durationText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -172,12 +173,21 @@ namespace FFXIV_PerformHelper
             this.label4.TabIndex = 14;
             this.label4.Text = "beat";
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(14, 74);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(497, 8);
+            this.progressBar.Step = 1;
+            this.progressBar.TabIndex = 15;
+            // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.durationText);
             this.Controls.Add(this.octaveComboBox);
@@ -256,6 +266,8 @@ namespace FFXIV_PerformHelper
             octaveComboBox.SelectedItem = MusicDefine.OctaveStr[(int)note.octave];
             durationText.Text = note.duration.ToString();
         }
+
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

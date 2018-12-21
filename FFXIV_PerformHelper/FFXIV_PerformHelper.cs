@@ -22,6 +22,7 @@ namespace FFXIV_PerformHelper
         private SheetData sheetData;
         public List<SheetData.Note> GetNotes() { return sheetData.notes; }
         public SheetData.Note GetNote(int idx) { return sheetData.notes[idx]; }
+        public double GetTimeRatio() { if (sheetData == null) return 0; return ElapsedTime / sheetData.endTime; }
 
         public bool IsPlaying { get; private set; }
         public double ElapsedTime { get; private set; }
@@ -67,6 +68,10 @@ namespace FFXIV_PerformHelper
         private void TimeManager_OnUpdate()
         {
             sheetWindow.Refresh();
+
+            double t = GetTimeRatio();
+            int value = MathExtension.Lerp(0, 100, t);
+            progressBar.Value = value;
 
             if (IsPlaying)
                 ElapsedTime += TimeManager.DeltaTime;

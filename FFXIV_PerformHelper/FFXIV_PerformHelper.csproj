@@ -58,6 +58,7 @@
     <Compile Include="FFXIV_PerformHelper.Designer.cs">
       <DependentUpon>FFXIV_PerformHelper.cs</DependentUpon>
     </Compile>
+    <Compile Include="MathExtension.cs" />
     <Compile Include="MusicDefine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

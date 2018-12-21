@@ -68,6 +68,7 @@ namespace FFXIV_PerformHelper
         public string name;
         public int bpm;
         public List<Note> notes;
+        public double endTime;
 
         public SheetData()
         {
@@ -88,6 +89,8 @@ namespace FFXIV_PerformHelper
                 notes[i].endTime = notes[i].startTime + (beatTime * notes[i].duration);
                 t = notes[i].endTime;
             }
+
+            endTime = notes[notes.Count - 1].endTime;
         }
     }
 }
