@@ -48,20 +48,6 @@ namespace FFXIV_PerformHelper
             "B"
         };
 
-        public enum Alter
-        {
-            None,
-            Sharp,
-            Flat,
-        }
-
-        public static string[] AlterStr =
-        {
-            "  ",
-            "＃",
-            "♭",
-        };
-
         public enum Octave
         {
             Default,

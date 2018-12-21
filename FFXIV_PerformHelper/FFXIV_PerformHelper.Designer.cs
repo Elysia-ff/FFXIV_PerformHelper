@@ -41,7 +41,6 @@ namespace FFXIV_PerformHelper
             this.bpmText = new System.Windows.Forms.TextBox();
             this.strText = new System.Windows.Forms.Label();
             this.codeComboBox = new System.Windows.Forms.ComboBox();
-            this.alterComboBox = new System.Windows.Forms.ComboBox();
             this.octaveComboBox = new System.Windows.Forms.ComboBox();
             this.durationText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -149,25 +148,17 @@ namespace FFXIV_PerformHelper
             this.codeComboBox.Size = new System.Drawing.Size(60, 20);
             this.codeComboBox.TabIndex = 10;
             // 
-            // alterComboBox
-            // 
-            this.alterComboBox.FormattingEnabled = true;
-            this.alterComboBox.Location = new System.Drawing.Point(180, 188);
-            this.alterComboBox.Name = "alterComboBox";
-            this.alterComboBox.Size = new System.Drawing.Size(60, 20);
-            this.alterComboBox.TabIndex = 11;
-            // 
             // octaveComboBox
             // 
             this.octaveComboBox.FormattingEnabled = true;
-            this.octaveComboBox.Location = new System.Drawing.Point(250, 188);
+            this.octaveComboBox.Location = new System.Drawing.Point(176, 188);
             this.octaveComboBox.Name = "octaveComboBox";
             this.octaveComboBox.Size = new System.Drawing.Size(60, 20);
             this.octaveComboBox.TabIndex = 12;
             // 
             // durationText
             // 
-            this.durationText.Location = new System.Drawing.Point(320, 188);
+            this.durationText.Location = new System.Drawing.Point(242, 187);
             this.durationText.Name = "durationText";
             this.durationText.Size = new System.Drawing.Size(60, 21);
             this.durationText.TabIndex = 13;
@@ -175,7 +166,7 @@ namespace FFXIV_PerformHelper
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(386, 193);
+            this.label4.Location = new System.Drawing.Point(308, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 14;
@@ -190,7 +181,6 @@ namespace FFXIV_PerformHelper
             this.Controls.Add(this.label4);
             this.Controls.Add(this.durationText);
             this.Controls.Add(this.octaveComboBox);
-            this.Controls.Add(this.alterComboBox);
             this.Controls.Add(this.codeComboBox);
             this.Controls.Add(this.strText);
             this.Controls.Add(this.bpmText);
@@ -222,7 +212,6 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.TextBox bpmText;
         private System.Windows.Forms.Label strText;
         private System.Windows.Forms.ComboBox codeComboBox;
-        private System.Windows.Forms.ComboBox alterComboBox;
         private System.Windows.Forms.ComboBox octaveComboBox;
         private System.Windows.Forms.TextBox durationText;
         private System.Windows.Forms.Label label4;
@@ -232,16 +221,19 @@ namespace FFXIV_PerformHelper
             codeComboBox.Items.AddRange(new object[]
             {
                 MusicDefine.CodeStr[(int)MusicDefine.Code.C],
+                MusicDefine.CodeStr[(int)MusicDefine.Code.CSharp],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.D],
+                MusicDefine.CodeStr[(int)MusicDefine.Code.EFlat],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.E],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.F],
+                MusicDefine.CodeStr[(int)MusicDefine.Code.FSharp],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.G],
+                MusicDefine.CodeStr[(int)MusicDefine.Code.GSharp],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.A],
+                MusicDefine.CodeStr[(int)MusicDefine.Code.BFlat],
                 MusicDefine.CodeStr[(int)MusicDefine.Code.B],
                 MusicDefine.Code.REST.ToString(),
             });
-
-            alterComboBox.Items.AddRange(MusicDefine.AlterStr);
 
             octaveComboBox.Items.AddRange(MusicDefine.OctaveStr);
         }
@@ -260,8 +252,7 @@ namespace FFXIV_PerformHelper
             SheetData.Note note = GetNote(idx);
 
             strText.Text = note.str;
-            codeComboBox.SelectedItem = note.baseCode.ToString();
-            alterComboBox.SelectedItem = MusicDefine.AlterStr[(int)note.alter];
+            codeComboBox.SelectedItem = (note.code == MusicDefine.Code.REST) ? note.code.ToString() : MusicDefine.CodeStr[(int)note.code];
             octaveComboBox.SelectedItem = MusicDefine.OctaveStr[(int)note.octave];
             durationText.Text = note.duration.ToString();
         }

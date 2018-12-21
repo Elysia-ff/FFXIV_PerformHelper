@@ -15,8 +15,7 @@ namespace FFXIV_PerformHelper
         public const string Data = "Data";
         public const string Note = "Note";
         public const string Pitch = "Pitch";
-        public const string Step = "Step";
-        public const string Alter = "Alter";
+        public const string Code = "Code";
         public const string Octave = "Octave";
         public const string Duration = "Duration";
     }

@@ -51,12 +51,11 @@ namespace FFXIV_PerformHelper
                 XmlNodeList notes = doc.GetElementsByTagName(XmlDefine.Note);
                 foreach (XmlNode xn in notes)
                 {
-                    int step = int.Parse(xn[XmlDefine.Pitch][XmlDefine.Step].InnerText);
-                    int alter = int.Parse(xn[XmlDefine.Pitch][XmlDefine.Alter].InnerText);
+                    int step = int.Parse(xn[XmlDefine.Pitch][XmlDefine.Code].InnerText);
                     int octave = int.Parse(xn[XmlDefine.Pitch][XmlDefine.Octave].InnerText);
                     double duration = double.Parse(xn[XmlDefine.Duration].InnerText);
 
-                    SheetData.Note note = new SheetData.Note(step, alter, octave, duration);
+                    SheetData.Note note = new SheetData.Note(step, octave, duration);
                     data.notes.Add(note);
                 }
             }

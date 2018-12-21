@@ -7,456 +7,399 @@
   <Data>
     <Note>
       <Pitch>
-        <Step>5</Step>
-        <Alter>0</Alter>
+        <Code>5</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>2</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>4</Step>
-        <Alter>-1</Alter>
+        <Code>3</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>3</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>5</Step>
-        <Alter>0</Alter>
+        <Code>5</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>9</Step>
-        <Alter>0</Alter>
+        <Code>9</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>9</Step>
-        <Alter>0</Alter>
+        <Code>9</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>4</Step>
-        <Alter>-1</Alter>
+        <Code>3</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>2</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>99</Step>
-        <Alter>0</Alter>
+        <Code>99</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>4</Step>
-        <Alter>-1</Alter>
+        <Code>3</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>5</Step>
-        <Alter>0</Alter>
+        <Code>5</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>2</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>99</Step>
-        <Alter>0</Alter>
+        <Code>99</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>4</Step>
-        <Alter>-1</Alter>
+        <Code>3</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>5</Step>
-        <Alter>0</Alter>
+        <Code>5</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>2</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>99</Step>
-        <Alter>0</Alter>
+        <Code>99</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>5</Step>
-        <Alter>0</Alter>
+        <Code>5</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>7</Step>
-        <Alter>0</Alter>
+        <Code>7</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>9</Step>
-        <Alter>0</Alter>
+        <Code>9</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>9</Step>
-        <Alter>0</Alter>
+        <Code>9</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>2</Step>
-        <Alter>0</Alter>
+        <Code>2</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>4</Step>
-        <Alter>-1</Alter>
+        <Code>3</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>0.5</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>0</Step>
-        <Alter>0</Alter>
+        <Code>0</Code>
         <Octave>1</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>1</Duration>
     </Note>
     <Note>
       <Pitch>
-        <Step>11</Step>
-        <Alter>-1</Alter>
+        <Code>10</Code>
         <Octave>0</Octave>
       </Pitch>
       <Duration>2</Duration>

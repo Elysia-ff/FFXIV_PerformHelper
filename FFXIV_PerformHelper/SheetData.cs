@@ -13,9 +13,7 @@ namespace FFXIV_PerformHelper
     {
         public class Note
         {
-            public readonly MusicDefine.Code baseCode;
             public readonly MusicDefine.Code code;
-            public readonly MusicDefine.Alter alter;
             public readonly MusicDefine.Octave octave;
             public readonly double duration;
             public readonly string str;
@@ -23,33 +21,9 @@ namespace FFXIV_PerformHelper
             public double startTime;
             public double endTime;
 
-            public Note(int _step, int _alter, int _octave, double _duration)
+            public Note(int _step, int _octave, double _duration)
             {
                 int codeIdx = _step;
-
-                #region BaseCode
-                baseCode = (MusicDefine.Code)codeIdx;
-                #endregion
-
-                #region Alter
-                if (_alter == 0)
-                {
-                    alter = MusicDefine.Alter.None;
-                }
-                else
-                {
-                    if (_alter > 0)
-                    {
-                        codeIdx += 1;
-                        alter = MusicDefine.Alter.Sharp;
-                    }
-                    else
-                    {
-                        codeIdx -= 1;
-                        alter = MusicDefine.Alter.Flat;
-                    }
-                }
-                #endregion
 
                 #region Code
                 code = (MusicDefine.Code)codeIdx;
