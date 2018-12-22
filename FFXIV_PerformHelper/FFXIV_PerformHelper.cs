@@ -22,11 +22,14 @@ namespace FFXIV_PerformHelper
         private SheetManager sheetManager;
 
         private SheetData sheetData;
+        public string GetMusicName() { return sheetData.name; }
+        public string GetBPM() { return sheetData.bpm.ToString(); }
         public List<SheetData.Note> GetNotes() { return sheetData.notes; }
         public double GetTimeRatio() { if (sheetData == null) return 0; return ElapsedTime / sheetData.endTime; }
 
         private SheetData modifiedSheetData;
 
+        public bool IsLoaded { get { return sheetData != null; } }
         public bool IsPlaying { get; private set; }
         public double ElapsedTime { get; private set; }
         public double Speed = 100d;

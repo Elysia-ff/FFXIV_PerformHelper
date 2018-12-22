@@ -125,11 +125,45 @@ namespace FFXIV_PerformHelper
             return startPixel == Height && endPixel == Height;
         }
 
+        private void DrawText(Graphics g, Rectangle rect, string value, StringFormat stringFormat)
+        {
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+
+            Font f = Font;
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                path.AddString(value, f.FontFamily, (int)f.Style, f.Height, rect, stringFormat);
+
+                g.DrawPath(textPen, path);
+                g.FillPath(Brushes.White, path);
+
+                g.TextRenderingHint = TextRenderingHint.SystemDefault;
+                g.SmoothingMode = SmoothingMode.Default;
+            }
+        }
+
         private void DrawMoveRect(Graphics g)
         {
             Rectangle rect = new Rectangle(0, 0, Width - penWitdh, moveRectHeight + penWitdh);
             g.FillRectangle(moveRectBrush, rect.X, rect.Y, rect.Width, rect.Height);
             g.DrawRectangle(moveRectPen, rect.X, rect.Y, rect.Width, rect.Height);
+
+            if (player.IsPlaying)
+            {
+                double t = player.GetTimeRatio();
+                int w = MathExtension.Lerp(0, Width, t);
+                Rectangle timeRect = new Rectangle(0, 0, w - penWitdh, timeRectHeight + penWitdh);
+                g.FillRectangle(timeRectBrush, timeRect.X, timeRect.Y, timeRect.Width, timeRect.Height);
+                g.DrawRectangle(moveRectPen, timeRect.X, timeRect.Y, timeRect.Width, timeRect.Height);
+            }
+
+            if (player.IsLoaded)
+            {
+                Rectangle nameRect = new Rectangle(0, timeRectHeight, Width, moveRectHeight - penWitdh);
+                DrawText(g, nameRect, player.GetMusicName(), nearStringFormat);
+                DrawText(g, nameRect, player.GetBPM(), farStringFormat);
+            }
         }
 
         private void DrawBackground(Graphics g, int idx)
@@ -142,21 +176,7 @@ namespace FFXIV_PerformHelper
         private void DrawText(Graphics g, int idx)
         {
             Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
-            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-
-            Font f = Font;
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                string value = MusicDefine.CodeStr[idx];
-                path.AddString(value, f.FontFamily, (int)f.Style, f.Height, rect, stringFormat);
-
-                g.DrawPath(textPen, path);
-                g.FillPath(Brushes.White, path);
-
-                g.TextRenderingHint = TextRenderingHint.SystemDefault;
-                g.SmoothingMode = SmoothingMode.Default;
-            }
+            DrawText(g, rect, MusicDefine.CodeStr[idx], centerStringFormat);
         }
 
         private void DrawBar(Graphics g, int idx, int startPixel, int endPixel, string code)
@@ -165,20 +185,10 @@ namespace FFXIV_PerformHelper
             Rectangle rect = new Rectangle(barX[idx], endPixel, width, h - penWitdh);
             g.FillRectangle(barBrush, rect.X, rect.Y, rect.Width, rect.Height);
             g.DrawRectangle(barPen, rect.X, rect.Y, rect.Width, rect.Height);
-            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            g.SmoothingMode = SmoothingMode.HighQuality;
 
             Font f = Font;
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                Rectangle stringRect = new Rectangle(barX[idx], startPixel - f.Height, width, f.Height);
-                path.AddString(code, f.FontFamily, (int)f.Style, f.Height, stringRect, stringFormat);
-                g.DrawPath(barTextPen, path);
-                g.FillPath(Brushes.White, path);
-
-                g.TextRenderingHint = TextRenderingHint.SystemDefault;
-                g.SmoothingMode = SmoothingMode.Default;
-            }
+            Rectangle stringRect = new Rectangle(barX[idx], startPixel - f.Height, width, f.Height);
+            DrawText(g, stringRect, code, centerStringFormat);
         }
 
         private int GetPixel(double time)

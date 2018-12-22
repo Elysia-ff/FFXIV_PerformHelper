@@ -11,6 +11,7 @@ namespace FFXIV_PerformHelper
         private System.ComponentModel.IContainer components = null;
 
         private const int moveRectHeight = 20;
+        private const int timeRectHeight = 5;
         private const int penWitdh = 1;
 
         private SolidBrush moveRectBrush = new SolidBrush(Color.Black);
@@ -18,6 +19,7 @@ namespace FFXIV_PerformHelper
         {
             LineJoin = LineJoin.Bevel,
         };
+        private SolidBrush timeRectBrush = new SolidBrush(Color.White);
 
         private SolidBrush backgroundBrush = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
         private Pen backgroundPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
@@ -25,10 +27,20 @@ namespace FFXIV_PerformHelper
             LineJoin = LineJoin.Bevel,
         };
 
-        private StringFormat stringFormat = new StringFormat()
+        private StringFormat centerStringFormat = new StringFormat()
         {
             LineAlignment = StringAlignment.Far,
             Alignment = StringAlignment.Center,
+        };
+        private StringFormat nearStringFormat = new StringFormat()
+        {
+            LineAlignment = StringAlignment.Far,
+            Alignment = StringAlignment.Near,
+        };
+        private StringFormat farStringFormat = new StringFormat()
+        {
+            LineAlignment = StringAlignment.Far,
+            Alignment = StringAlignment.Far,
         };
 
         private Pen textPen = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWitdh)
@@ -59,9 +71,12 @@ namespace FFXIV_PerformHelper
 
             moveRectBrush.Dispose();
             moveRectPen.Dispose();
+            timeRectBrush.Dispose();
             backgroundBrush.Dispose();
             backgroundPen.Dispose();
-            stringFormat.Dispose();
+            centerStringFormat.Dispose();
+            nearStringFormat.Dispose();
+            farStringFormat.Dispose();
             textPen.Dispose();
             barBrush.Dispose();
             barPen.Dispose();
