@@ -27,11 +27,6 @@ namespace FFXIV_PerformHelper
             REST = 99,
         }
 
-        public const char Sharp = '＃';
-        public const char Flat = '♭';
-        public const char Up = '↑';
-        public const char Down = '↓';
-
         public static string[] CodeStr =
         {
             "C",
@@ -71,49 +66,5 @@ namespace FFXIV_PerformHelper
             -1,
             2,
         };
-
-        public static Code[] SharpOrder =
-        {
-            Code.F,
-            Code.C,
-            Code.G,
-            Code.D,
-            Code.A,
-            Code.E,
-            Code.B
-        };
-
-        public static Code[] FlatOrder =
-        {
-            Code.B,
-            Code.E,
-            Code.A,
-            Code.D,
-            Code.G,
-            Code.C,
-            Code.F
-        };
-
-        public static HashSet<Code> GetGlobalSharp(int count)
-        {
-            HashSet<Code> hash = new HashSet<Code>();
-            for (int i = 0; i < count; i++)
-            {
-                hash.Add(SharpOrder[i]);
-            }
-
-            return hash;
-        }
-
-        public static HashSet<Code> GetGlobalFlat(int count)
-        {
-            HashSet<Code> hash = new HashSet<Code>();
-            for (int i = 0; i < count; i++)
-            {
-                hash.Add(FlatOrder[i]);
-            }
-
-            return hash;
-        }
     }
 }
