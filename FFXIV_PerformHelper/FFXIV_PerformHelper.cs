@@ -222,6 +222,9 @@ namespace FFXIV_PerformHelper
             if (modifiedSheetData == null)
                 return;
 
+            modifiedSheetData.name = nameText.Text;
+            modifiedSheetData.bpm = int.Parse(bpmText.Text);
+
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
                 using (Stream stream = saveDialog.OpenFile())
@@ -239,6 +242,8 @@ namespace FFXIV_PerformHelper
                 return;
 
             MusicDefine.Code code = (MusicDefine.Code)codeComboBox.SelectedIndex;
+            if (code >= MusicDefine.Code.Count)
+                code = MusicDefine.Code.REST;
             MusicDefine.Octave octave = (MusicDefine.Octave)octaveComboBox.SelectedIndex;
             double duration = double.Parse(durationText.Text);
             SheetData.Note note = new SheetData.Note(code, octave, duration);
