@@ -49,6 +49,16 @@ namespace FFXIV_PerformHelper
                 str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
             }
 
+            public Note(MusicDefine.Code _code, MusicDefine.Octave _octave, double _duration)
+            {
+                code = _code;
+                octave = _octave;
+                duration = _duration;
+
+                int codeIdx = (int)code;
+                str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
+            }
+
             public Note(Note source)
             {
                 code = source.code;

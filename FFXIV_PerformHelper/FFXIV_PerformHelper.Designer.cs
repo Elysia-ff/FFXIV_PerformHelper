@@ -49,6 +49,8 @@ namespace FFXIV_PerformHelper
             this.insertBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.applyBtn = new System.Windows.Forms.Button();
+            this.resetBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +92,7 @@ namespace FFXIV_PerformHelper
             // codeList
             // 
             this.codeList.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.codeList.ColumnWidth = 30;
+            this.codeList.ColumnWidth = 50;
             this.codeList.FormattingEnabled = true;
             this.codeList.HorizontalScrollbar = true;
             this.codeList.ItemHeight = 12;
@@ -138,7 +140,7 @@ namespace FFXIV_PerformHelper
             // 
             this.strText.AutoSize = true;
             this.strText.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.strText.Location = new System.Drawing.Point(12, 221);
+            this.strText.Location = new System.Drawing.Point(50, 222);
             this.strText.Name = "strText";
             this.strText.Size = new System.Drawing.Size(22, 20);
             this.strText.TabIndex = 9;
@@ -148,7 +150,7 @@ namespace FFXIV_PerformHelper
             // 
             this.codeComboBox.DropDownWidth = 60;
             this.codeComboBox.FormattingEnabled = true;
-            this.codeComboBox.Location = new System.Drawing.Point(100, 221);
+            this.codeComboBox.Location = new System.Drawing.Point(120, 222);
             this.codeComboBox.Name = "codeComboBox";
             this.codeComboBox.Size = new System.Drawing.Size(60, 20);
             this.codeComboBox.TabIndex = 10;
@@ -156,14 +158,14 @@ namespace FFXIV_PerformHelper
             // octaveComboBox
             // 
             this.octaveComboBox.FormattingEnabled = true;
-            this.octaveComboBox.Location = new System.Drawing.Point(166, 221);
+            this.octaveComboBox.Location = new System.Drawing.Point(186, 222);
             this.octaveComboBox.Name = "octaveComboBox";
             this.octaveComboBox.Size = new System.Drawing.Size(60, 20);
             this.octaveComboBox.TabIndex = 12;
             // 
             // durationText
             // 
-            this.durationText.Location = new System.Drawing.Point(232, 220);
+            this.durationText.Location = new System.Drawing.Point(252, 221);
             this.durationText.Name = "durationText";
             this.durationText.Size = new System.Drawing.Size(60, 21);
             this.durationText.TabIndex = 13;
@@ -171,7 +173,7 @@ namespace FFXIV_PerformHelper
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 225);
+            this.label4.Location = new System.Drawing.Point(318, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 14;
@@ -217,7 +219,7 @@ namespace FFXIV_PerformHelper
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(12, 272);
+            this.saveBtn.Location = new System.Drawing.Point(12, 383);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(499, 23);
             this.saveBtn.TabIndex = 19;
@@ -225,12 +227,34 @@ namespace FFXIV_PerformHelper
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
+            // applyBtn
+            // 
+            this.applyBtn.Location = new System.Drawing.Point(358, 219);
+            this.applyBtn.Name = "applyBtn";
+            this.applyBtn.Size = new System.Drawing.Size(74, 23);
+            this.applyBtn.TabIndex = 20;
+            this.applyBtn.Text = "Apply";
+            this.applyBtn.UseVisualStyleBackColor = true;
+            this.applyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
+            // 
+            // resetBtn
+            // 
+            this.resetBtn.Location = new System.Drawing.Point(438, 219);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(74, 23);
+            this.resetBtn.TabIndex = 21;
+            this.resetBtn.Text = "Reset";
+            this.resetBtn.UseVisualStyleBackColor = true;
+            this.resetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
+            // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resetBtn);
+            this.Controls.Add(this.applyBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.insertBtn);
@@ -278,6 +302,8 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button applyBtn;
+        private System.Windows.Forms.Button resetBtn;
     }
 }
 

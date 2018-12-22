@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace FFXIV_PerformHelper
     public partial class FFXIV_PerformHelper : Form
     {
         public TimeManager TimeManager { get; private set; }
-        private OpenFileDialog fileDialog;
+        private OpenFileDialog openDialog;
+        private SaveFileDialog saveDialog;
 
         private SheetWindow sheetWindow;
 
@@ -24,7 +26,6 @@ namespace FFXIV_PerformHelper
         public double GetTimeRatio() { if (sheetData == null) return 0; return ElapsedTime / sheetData.endTime; }
 
         private SheetData modifiedSheetData;
-        private bool isModified;
 
         public bool IsPlaying { get; private set; }
         public double ElapsedTime { get; private set; }
@@ -35,7 +36,14 @@ namespace FFXIV_PerformHelper
         public FFXIV_PerformHelper()
         {
             TimeManager = new TimeManager();
-            fileDialog = new OpenFileDialog();
+            openDialog = new OpenFileDialog()
+            {
+                Filter = "XML|*.xml",
+            };
+            saveDialog = new SaveFileDialog()
+            {
+                Filter = "XML|*.xml",
+            };
             sheetWindow = new SheetWindow(this)
             {
                 Top = 398,
@@ -90,7 +98,6 @@ namespace FFXIV_PerformHelper
 
             IsPlaying = true;
             ElapsedTime = 0d;
-            SetEditMode(false);
 
             TimeManager.Reset();
         }
@@ -98,7 +105,6 @@ namespace FFXIV_PerformHelper
         public void Stop()
         {
             IsPlaying = false;
-            SetEditMode(true);
         }
 
         private void TimeManager_OnUpdate()
@@ -115,15 +121,15 @@ namespace FFXIV_PerformHelper
 
         private void BrowseBtn_Click(object sender, EventArgs e)
         {
-            if (fileDialog.ShowDialog() != DialogResult.OK)
+            if (openDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
             //try
             //{
-                directoryText.Text = fileDialog.FileName;
-                loadedXML.Load(fileDialog.FileName);
+                directoryText.Text = openDialog.FileName;
+                loadedXML.Load(openDialog.FileName);
                 sheetData = sheetManager.Read(loadedXML);
                 sheetData.Apply(startTime);
                 modifiedSheetData = new SheetData(sheetData);
@@ -173,22 +179,13 @@ namespace FFXIV_PerformHelper
             durationText.Text = note.duration.ToString();
         }
 
-        private void SetEditMode(bool enabled)
-        {
-            codeComboBox.Enabled = enabled;
-            octaveComboBox.Enabled = enabled;
-            durationText.Enabled = enabled;
-
-            addBtn.Enabled = enabled;
-            insertBtn.Enabled = enabled;
-            removeBtn.Enabled = enabled;
-        }
-
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            if (modifiedSheetData == null)
+                return;
+
             SheetData.Note note = SheetData.Note.GetDefault();
             modifiedSheetData.notes.Add(note);
-            isModified = true;
 
             DrawInfo();
             codeList.SelectedIndex = modifiedSheetData.notes.Count - 1;
@@ -202,7 +199,6 @@ namespace FFXIV_PerformHelper
             int idx = codeList.SelectedIndex;
             SheetData.Note note = SheetData.Note.GetDefault();
             modifiedSheetData.notes.Insert(idx, note);
-            isModified = true;
 
             DrawInfo();
             codeList.SelectedIndex = idx;
@@ -215,7 +211,6 @@ namespace FFXIV_PerformHelper
 
             int idx = codeList.SelectedIndex;
             modifiedSheetData.notes.RemoveAt(idx);
-            isModified = true;
 
             DrawInfo();
             int selectedIdx = Math.Min(codeList.Items.Count - 1, idx);
@@ -224,10 +219,44 @@ namespace FFXIV_PerformHelper
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (!isModified)
+            if (modifiedSheetData == null)
                 return;
 
-            isModified = false;
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream stream = saveDialog.OpenFile())
+                {
+                    XmlDocument newDoc = sheetManager.Write(modifiedSheetData);
+                    newDoc.Save(stream);
+                    stream.Close();
+                }
+            }
+        }
+
+        private void ApplyBtn_Click(object sender, EventArgs e)
+        {
+            if (codeList.SelectedIndex < 0)
+                return;
+
+            MusicDefine.Code code = (MusicDefine.Code)codeComboBox.SelectedIndex;
+            MusicDefine.Octave octave = (MusicDefine.Octave)octaveComboBox.SelectedIndex;
+            double duration = double.Parse(durationText.Text);
+            SheetData.Note note = new SheetData.Note(code, octave, duration);
+
+            int idx = codeList.SelectedIndex;
+            modifiedSheetData.notes[idx] = note;
+
+            DrawInfo();
+            codeList.SelectedIndex = idx;
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            if (codeList.SelectedIndex < 0)
+                return;
+
+            int idx = codeList.SelectedIndex;
+            SetNoteInfo(idx);
         }
     }
 }
