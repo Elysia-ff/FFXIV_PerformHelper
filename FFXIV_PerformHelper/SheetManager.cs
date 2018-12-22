@@ -91,6 +91,13 @@ namespace FFXIV_PerformHelper
             return doc;
         }
 
+        public XmlDocument GetDefault()
+        {
+            SheetData sheetData = SheetData.GetDefault();
+
+            return Write(sheetData);
+        }
+
         private XmlNode CreateElement(XmlDocument doc, string name)
         {
             XmlNode node = doc.CreateElement(name);

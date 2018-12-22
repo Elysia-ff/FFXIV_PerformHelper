@@ -258,5 +258,18 @@ namespace FFXIV_PerformHelper
             int idx = codeList.SelectedIndex;
             SetNoteInfo(idx);
         }
+
+        private void NewFileBtn_Click(object sender, EventArgs e)
+        {
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream stream = saveDialog.OpenFile())
+                {
+                    XmlDocument newDoc = sheetManager.GetDefault();
+                    newDoc.Save(stream);
+                    stream.Close();
+                }
+            }
+        }
     }
 }

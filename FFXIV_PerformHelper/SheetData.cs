@@ -120,6 +120,17 @@ namespace FFXIV_PerformHelper
             endTime = source.endTime;
         }
 
+        public static SheetData GetDefault()
+        {
+            SheetData sheetData = new SheetData();
+            sheetData.name = "NewSheet";
+            sheetData.bpm = 120;
+            sheetData.notes = new List<Note>();
+            sheetData.notes.Add(Note.GetDefault());
+
+            return sheetData;
+        }
+
         public void Apply(double startTime)
         {
             double t = 0;

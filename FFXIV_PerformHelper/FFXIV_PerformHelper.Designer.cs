@@ -51,6 +51,7 @@ namespace FFXIV_PerformHelper
             this.saveBtn = new System.Windows.Forms.Button();
             this.applyBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
+            this.newFileBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -247,12 +248,23 @@ namespace FFXIV_PerformHelper
             this.resetBtn.UseVisualStyleBackColor = true;
             this.resetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
+            // newFileBtn
+            // 
+            this.newFileBtn.Location = new System.Drawing.Point(12, 413);
+            this.newFileBtn.Name = "newFileBtn";
+            this.newFileBtn.Size = new System.Drawing.Size(499, 23);
+            this.newFileBtn.TabIndex = 22;
+            this.newFileBtn.Text = "New File";
+            this.newFileBtn.UseVisualStyleBackColor = true;
+            this.newFileBtn.Click += new System.EventHandler(this.NewFileBtn_Click);
+            // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newFileBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.applyBtn);
             this.Controls.Add(this.saveBtn);
@@ -304,6 +316,7 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Button newFileBtn;
     }
 }
 
