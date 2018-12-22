@@ -49,6 +49,28 @@ namespace FFXIV_PerformHelper
                 str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
             }
 
+            public Note(Note source)
+            {
+                code = source.code;
+                octave = source.octave;
+                duration = source.duration;
+                str = source.str;
+
+                startTime = source.startTime;
+                endTime = source.endTime;
+            }
+
+            public static Note GetDefault()
+            {
+                int code = (int)MusicDefine.Code.C;
+                int octave = MusicDefine.OctaveInt[(int)MusicDefine.Octave.Default];
+                double duration = 1d;
+
+                Note note = new Note(code, octave, duration);
+
+                return note;
+            }
+
             private string MakeStr(string step)
             {
                 StringBuilder stringBuilder = new StringBuilder();
@@ -73,6 +95,19 @@ namespace FFXIV_PerformHelper
         public SheetData()
         {
             notes = new List<Note>();
+        }
+
+        public SheetData(SheetData source)
+        {
+            name = source.name;
+            bpm = source.bpm;
+            notes = new List<Note>();
+            for (int i = 0; i < source.notes.Count; i++)
+            {
+                Note note = new Note(source.notes[i]);
+                notes.Add(note);
+            }
+            endTime = source.endTime;
         }
 
         public void Apply(double startTime)

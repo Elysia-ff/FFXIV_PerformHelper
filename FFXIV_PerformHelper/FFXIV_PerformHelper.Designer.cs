@@ -45,6 +45,10 @@ namespace FFXIV_PerformHelper
             this.durationText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.removeBtn = new System.Windows.Forms.Button();
+            this.insertBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +138,7 @@ namespace FFXIV_PerformHelper
             // 
             this.strText.AutoSize = true;
             this.strText.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.strText.Location = new System.Drawing.Point(22, 188);
+            this.strText.Location = new System.Drawing.Point(12, 221);
             this.strText.Name = "strText";
             this.strText.Size = new System.Drawing.Size(22, 20);
             this.strText.TabIndex = 9;
@@ -144,7 +148,7 @@ namespace FFXIV_PerformHelper
             // 
             this.codeComboBox.DropDownWidth = 60;
             this.codeComboBox.FormattingEnabled = true;
-            this.codeComboBox.Location = new System.Drawing.Point(110, 188);
+            this.codeComboBox.Location = new System.Drawing.Point(100, 221);
             this.codeComboBox.Name = "codeComboBox";
             this.codeComboBox.Size = new System.Drawing.Size(60, 20);
             this.codeComboBox.TabIndex = 10;
@@ -152,14 +156,14 @@ namespace FFXIV_PerformHelper
             // octaveComboBox
             // 
             this.octaveComboBox.FormattingEnabled = true;
-            this.octaveComboBox.Location = new System.Drawing.Point(176, 188);
+            this.octaveComboBox.Location = new System.Drawing.Point(166, 221);
             this.octaveComboBox.Name = "octaveComboBox";
             this.octaveComboBox.Size = new System.Drawing.Size(60, 20);
             this.octaveComboBox.TabIndex = 12;
             // 
             // durationText
             // 
-            this.durationText.Location = new System.Drawing.Point(242, 187);
+            this.durationText.Location = new System.Drawing.Point(232, 220);
             this.durationText.Name = "durationText";
             this.durationText.Size = new System.Drawing.Size(60, 21);
             this.durationText.TabIndex = 13;
@@ -167,7 +171,7 @@ namespace FFXIV_PerformHelper
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 192);
+            this.label4.Location = new System.Drawing.Point(298, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 14;
@@ -175,11 +179,51 @@ namespace FFXIV_PerformHelper
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(14, 74);
+            this.progressBar.Location = new System.Drawing.Point(12, 74);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(497, 8);
+            this.progressBar.Size = new System.Drawing.Size(499, 8);
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 15;
+            // 
+            // removeBtn
+            // 
+            this.removeBtn.Location = new System.Drawing.Point(438, 175);
+            this.removeBtn.Name = "removeBtn";
+            this.removeBtn.Size = new System.Drawing.Size(74, 23);
+            this.removeBtn.TabIndex = 16;
+            this.removeBtn.Text = "Remove";
+            this.removeBtn.UseVisualStyleBackColor = true;
+            this.removeBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
+            // 
+            // insertBtn
+            // 
+            this.insertBtn.Location = new System.Drawing.Point(358, 175);
+            this.insertBtn.Name = "insertBtn";
+            this.insertBtn.Size = new System.Drawing.Size(74, 23);
+            this.insertBtn.TabIndex = 17;
+            this.insertBtn.Text = "Insert";
+            this.insertBtn.UseVisualStyleBackColor = true;
+            this.insertBtn.Click += new System.EventHandler(this.InsertBtn_Click);
+            // 
+            // addBtn
+            // 
+            this.addBtn.Location = new System.Drawing.Point(278, 175);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(74, 23);
+            this.addBtn.TabIndex = 18;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(12, 272);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(499, 23);
+            this.saveBtn.TabIndex = 19;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // FFXIV_PerformHelper
             // 
@@ -187,6 +231,10 @@ namespace FFXIV_PerformHelper
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.insertBtn);
+            this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.durationText);
@@ -225,49 +273,11 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.ComboBox octaveComboBox;
         private System.Windows.Forms.TextBox durationText;
         private System.Windows.Forms.Label label4;
-
-        private void InitializeItems()
-        {
-            codeComboBox.Items.AddRange(new object[]
-            {
-                MusicDefine.CodeStr[(int)MusicDefine.Code.C],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.CSharp],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.D],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.EFlat],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.E],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.F],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.FSharp],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.G],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.GSharp],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.A],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.BFlat],
-                MusicDefine.CodeStr[(int)MusicDefine.Code.B],
-                MusicDefine.Code.REST.ToString(),
-            });
-
-            octaveComboBox.Items.AddRange(MusicDefine.OctaveStr);
-        }
-
-        private void PlayBtn_Click(object sender, EventArgs e)
-        {
-            if (sheetData == null)
-                return;
-
-            Play();
-        }
-
-        private void CodeList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int idx = codeList.SelectedIndex;
-            SheetData.Note note = GetNote(idx);
-
-            strText.Text = note.str;
-            codeComboBox.SelectedItem = (note.code == MusicDefine.Code.REST) ? note.code.ToString() : MusicDefine.CodeStr[(int)note.code];
-            octaveComboBox.SelectedItem = MusicDefine.OctaveStr[(int)note.octave];
-            durationText.Text = note.duration.ToString();
-        }
-
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button removeBtn;
+        private System.Windows.Forms.Button insertBtn;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button saveBtn;
     }
 }
 
