@@ -52,6 +52,13 @@ namespace FFXIV_PerformHelper
             this.applyBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
             this.newFileBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.locationXTextBox = new System.Windows.Forms.TextBox();
+            this.locationYTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.noteSpeedTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.startDelayTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +74,7 @@ namespace FFXIV_PerformHelper
             this.directoryText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.directoryText.Location = new System.Drawing.Point(12, 12);
             this.directoryText.Name = "directoryText";
+            this.directoryText.ReadOnly = true;
             this.directoryText.Size = new System.Drawing.Size(418, 21);
             this.directoryText.TabIndex = 1;
             // 
@@ -92,7 +100,6 @@ namespace FFXIV_PerformHelper
             // 
             // codeList
             // 
-            this.codeList.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.codeList.ColumnWidth = 50;
             this.codeList.FormattingEnabled = true;
             this.codeList.HorizontalScrollbar = true;
@@ -136,6 +143,7 @@ namespace FFXIV_PerformHelper
             this.bpmText.Name = "bpmText";
             this.bpmText.Size = new System.Drawing.Size(74, 21);
             this.bpmText.TabIndex = 8;
+            this.bpmText.Validating += new System.ComponentModel.CancelEventHandler(this.BPMText_Validating);
             // 
             // strText
             // 
@@ -155,6 +163,7 @@ namespace FFXIV_PerformHelper
             this.codeComboBox.Name = "codeComboBox";
             this.codeComboBox.Size = new System.Drawing.Size(60, 20);
             this.codeComboBox.TabIndex = 10;
+            this.codeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodeComboBox_Validating);
             // 
             // octaveComboBox
             // 
@@ -163,6 +172,7 @@ namespace FFXIV_PerformHelper
             this.octaveComboBox.Name = "octaveComboBox";
             this.octaveComboBox.Size = new System.Drawing.Size(60, 20);
             this.octaveComboBox.TabIndex = 12;
+            this.octaveComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.OctaveComboBox_Validating);
             // 
             // durationText
             // 
@@ -170,6 +180,7 @@ namespace FFXIV_PerformHelper
             this.durationText.Name = "durationText";
             this.durationText.Size = new System.Drawing.Size(60, 21);
             this.durationText.TabIndex = 13;
+            this.durationText.Validating += new System.ComponentModel.CancelEventHandler(this.DurationText_Validating);
             // 
             // label4
             // 
@@ -258,12 +269,78 @@ namespace FFXIV_PerformHelper
             this.newFileBtn.UseVisualStyleBackColor = true;
             this.newFileBtn.Click += new System.EventHandler(this.NewFileBtn_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(540, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Location";
+            // 
+            // locationXTextBox
+            // 
+            this.locationXTextBox.Location = new System.Drawing.Point(694, 10);
+            this.locationXTextBox.Name = "locationXTextBox";
+            this.locationXTextBox.Size = new System.Drawing.Size(45, 21);
+            this.locationXTextBox.TabIndex = 24;
+            this.locationXTextBox.TextChanged += new System.EventHandler(this.LocationXTextBox_TextChanged);
+            // 
+            // locationYTextBox
+            // 
+            this.locationYTextBox.Location = new System.Drawing.Point(745, 10);
+            this.locationYTextBox.Name = "locationYTextBox";
+            this.locationYTextBox.Size = new System.Drawing.Size(45, 21);
+            this.locationYTextBox.TabIndex = 25;
+            this.locationYTextBox.TextChanged += new System.EventHandler(this.LocationYTextBox_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(540, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 12);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Note Speed";
+            // 
+            // noteSpeedTextBox
+            // 
+            this.noteSpeedTextBox.Location = new System.Drawing.Point(694, 43);
+            this.noteSpeedTextBox.Name = "noteSpeedTextBox";
+            this.noteSpeedTextBox.Size = new System.Drawing.Size(96, 21);
+            this.noteSpeedTextBox.TabIndex = 27;
+            this.noteSpeedTextBox.TextChanged += new System.EventHandler(this.NoteSpeedTextBox_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(540, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 12);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Start Delay";
+            // 
+            // startDelayTextBox
+            // 
+            this.startDelayTextBox.Location = new System.Drawing.Point(694, 76);
+            this.startDelayTextBox.Name = "startDelayTextBox";
+            this.startDelayTextBox.Size = new System.Drawing.Size(96, 21);
+            this.startDelayTextBox.TabIndex = 29;
+            this.startDelayTextBox.TextChanged += new System.EventHandler(this.StartDelayTextBox_TextChanged);
+            // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.startDelayTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.noteSpeedTextBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.locationYTextBox);
+            this.Controls.Add(this.locationXTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.newFileBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.applyBtn);
@@ -317,6 +394,13 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button newFileBtn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox locationXTextBox;
+        private System.Windows.Forms.TextBox locationYTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox noteSpeedTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox startDelayTextBox;
     }
 }
 

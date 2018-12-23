@@ -208,8 +208,9 @@ namespace FFXIV_PerformHelper
 
         private int GetPixel(double time)
         {
+            double noteSpeed = Properties.Settings.Default.NoteSpeed;
             double timeLeft = time - player.ElapsedTime;
-            double pixel = Height - (timeLeft * player.Speed);
+            double pixel = Height - (timeLeft * noteSpeed);
 
             return (int)pixel;
         }
@@ -221,6 +222,14 @@ namespace FFXIV_PerformHelper
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void SheetWindow_LocationChanged(object sender, EventArgs e)
+        {
+            player.SetLocationText(Location);
+
+            Properties.Settings.Default.Location = Location;
+            Properties.Settings.Default.Save();
         }
     }
 }

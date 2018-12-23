@@ -111,6 +111,7 @@ namespace FFXIV_PerformHelper
             this.Text = "SheetWindow";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Green;
+            this.LocationChanged += new System.EventHandler(this.SheetWindow_LocationChanged);
             this.ResumeLayout(false);
 
         }

@@ -32,9 +32,6 @@ namespace FFXIV_PerformHelper
         public bool IsLoaded { get { return sheetData != null; } }
         public bool IsPlaying { get; private set; }
         public double ElapsedTime { get; private set; }
-        public double Speed = 100d;
-
-        private double startTime = 10d;
 
         public FFXIV_PerformHelper()
         {
@@ -49,8 +46,7 @@ namespace FFXIV_PerformHelper
             };
             sheetWindow = new SheetWindow(this)
             {
-                Top = 398,
-                Left = 759
+                Location = Properties.Settings.Default.Location
             };
             sheetWindow.Show();
             loadedXML = new XmlDocument();
@@ -84,6 +80,10 @@ namespace FFXIV_PerformHelper
             });
 
             octaveComboBox.Items.AddRange(MusicDefine.OctaveStr);
+
+            SetLocationText(sheetWindow.Location);
+            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
+            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
         }
 
         private void PlayBtn_Click(object sender, EventArgs e)
@@ -114,12 +114,18 @@ namespace FFXIV_PerformHelper
         {
             sheetWindow.Refresh();
 
-            double t = GetTimeRatio();
-            int value = MathExtension.Lerp(0, 100, t);
-            progressBar.Value = value;
-
             if (IsPlaying)
+            {
+                double t = GetTimeRatio();
+                int value = MathExtension.Lerp(0, 100, t);
+                progressBar.Value = value;
+
                 ElapsedTime += TimeManager.DeltaTime;
+            }
+            else
+            {
+                progressBar.Value = 0;
+            }
         }
 
         private void BrowseBtn_Click(object sender, EventArgs e)
@@ -134,7 +140,7 @@ namespace FFXIV_PerformHelper
                 directoryText.Text = openDialog.FileName;
                 loadedXML.Load(openDialog.FileName);
                 sheetData = sheetManager.Read(loadedXML);
-                sheetData.Apply(startTime);
+                sheetData.Apply();
                 modifiedSheetData = new SheetData(sheetData);
 
                 DrawInfo();
@@ -180,6 +186,38 @@ namespace FFXIV_PerformHelper
             codeComboBox.SelectedItem = (note.code == MusicDefine.Code.REST) ? note.code.ToString() : MusicDefine.CodeStr[(int)note.code];
             octaveComboBox.SelectedItem = MusicDefine.OctaveStr[(int)note.octave];
             durationText.Text = note.duration.ToString();
+        }
+
+        private void BPMText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string value = bpmText.Text;
+
+            if (!int.TryParse(value, out int v))
+                e.Cancel = true;
+        }
+
+        private void CodeComboBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string value = codeComboBox.Text;
+
+            if (!codeComboBox.Items.Contains(value))
+                e.Cancel = true;
+        }
+
+        private void OctaveComboBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string value = octaveComboBox.Text;
+
+            if (!octaveComboBox.Items.Contains(value))
+                e.Cancel = true;
+        }
+
+        private void DurationText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string value = durationText.Text;
+
+            if (!double.TryParse(value, out double v))
+                e.Cancel = true;
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -277,6 +315,64 @@ namespace FFXIV_PerformHelper
                     newDoc.Save(stream);
                     stream.Close();
                 }
+            }
+        }
+
+        public void SetLocationText(Point point)
+        {
+            if (locationXTextBox == null || locationYTextBox == null)
+                return;
+
+            locationXTextBox.Text = point.X.ToString();
+            locationYTextBox.Text = point.Y.ToString();
+        }
+
+        private void LocationXTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = locationXTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Point point = sheetWindow.Location;
+                point.X = v;
+                sheetWindow.Location = point;
+            }
+        }
+
+        private void LocationYTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = locationYTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Point point = sheetWindow.Location;
+                point.Y = v;
+                sheetWindow.Location = point;
+            }
+        }
+
+        private void NoteSpeedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = noteSpeedTextBox.Text;
+
+            if (double.TryParse(value, out double v))
+            {
+                Properties.Settings.Default.NoteSpeed = v;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void StartDelayTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = startDelayTextBox.Text;
+
+            if (double.TryParse(value, out double v))
+            {
+                Properties.Settings.Default.StartDelay = v;
+                Properties.Settings.Default.Save();
+
+                if (sheetData != null)
+                    sheetData.Apply();
             }
         }
     }

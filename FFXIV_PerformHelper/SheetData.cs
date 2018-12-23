@@ -45,8 +45,9 @@ namespace FFXIV_PerformHelper
             return sheetData;
         }
 
-        public void Apply(double startTime)
+        public void Apply()
         {
+            double startTime = Properties.Settings.Default.StartDelay;
             double t = 0;
             double bps = bpm / 60d;
             double beatTime = 1d / bps;
