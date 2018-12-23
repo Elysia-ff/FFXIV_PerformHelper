@@ -24,7 +24,7 @@ namespace FFXIV_PerformHelper
         public static extern bool ReleaseCapture();
 
         private int width = 40;
-        private int[] barX = new int[(int)MusicDefine.Code.Count]
+        private int[] barX = new int[(int)MusicDefine.Code.Count + 1]
         {
             0,
             30,
@@ -37,7 +37,8 @@ namespace FFXIV_PerformHelper
             278,
             309,
             340,
-            371
+            371,
+            434
         };
 
         private FFXIV_PerformHelper player;
@@ -66,11 +67,15 @@ namespace FFXIV_PerformHelper
             {
                 Graphics g = e.Graphics;
 
-                for (int i = 0; i < (int)MusicDefine.Code.Count; i++)
+                int count = (int)MusicDefine.Code.Count + 1;
+                for (int i = 0; i < count; i++)
                 {
                     DrawBackground(g, i);
                     if (!player.IsPlaying)
-                        DrawText(g, i);
+                    {
+                        int idx = (i < (int)MusicDefine.Code.Count) ? i : 0;
+                        DrawText(g, i, MusicDefine.CodeStr[idx]);
+                    }
                 }
 
                 if (player.IsPlaying)
@@ -96,8 +101,18 @@ namespace FFXIV_PerformHelper
                             }
                         }
 
-                        int idx = (int)notes[i].code;
-                        DrawBar(g, idx, startPixel, endPixel, notes[i].str);
+                        if (notes[i].code == MusicDefine.Code.C && notes[i].octave >= MusicDefine.Octave.Default)
+                        {
+                            MusicDefine.Octave octave = notes[i].octave - 1;
+                            string s = MusicDefine.GetStringCode(MusicDefine.Code.C, octave);
+                            DrawBar(g, barX.Length - 1, startPixel, endPixel, s);
+                        }
+
+                        if (notes[i].octave != MusicDefine.Octave.DoubleUp)
+                        {
+                            int idx = (int)notes[i].code;
+                            DrawBar(g, idx, startPixel, endPixel, notes[i].str);
+                        }
                     }
                 }
 
@@ -173,10 +188,10 @@ namespace FFXIV_PerformHelper
             g.DrawRectangle(backgroundPen, rect.X, rect.Y, rect.Width, rect.Height);
         }
 
-        private void DrawText(Graphics g, int idx)
+        private void DrawText(Graphics g, int idx, string value)
         {
             Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
-            DrawText(g, rect, MusicDefine.CodeStr[idx], centerStringFormat);
+            DrawText(g, rect, value, centerStringFormat);
         }
 
         private void DrawBar(Graphics g, int idx, int startPixel, int endPixel, string code)

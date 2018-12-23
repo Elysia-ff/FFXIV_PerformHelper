@@ -41,7 +41,7 @@ namespace FFXIV_PerformHelper
             #endregion
 
             duration = _duration;
-            str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
+            str = (codeIdx < MusicDefine.CodeStr.Length) ? MusicDefine.GetStringCode(code, octave) : string.Empty;
         }
 
         public Note(MusicDefine.Code _code, MusicDefine.Octave _octave, double _duration)
@@ -51,7 +51,7 @@ namespace FFXIV_PerformHelper
             duration = _duration;
 
             int codeIdx = (int)code;
-            str = (codeIdx < MusicDefine.CodeStr.Length) ? MakeStr(MusicDefine.CodeStr[codeIdx]) : string.Empty;
+            str = (codeIdx < MusicDefine.CodeStr.Length) ? MusicDefine.GetStringCode(code, octave) : string.Empty;
         }
 
         public Note(Note source)
@@ -74,21 +74,6 @@ namespace FFXIV_PerformHelper
             Note note = new Note(code, octave, duration);
 
             return note;
-        }
-
-        private string MakeStr(string step)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (octave != MusicDefine.Octave.Default)
-            {
-                string mark = MusicDefine.OctaveStr[(int)octave];
-                stringBuilder.Append(mark);
-            }
-
-            stringBuilder.Append(step);
-
-            return stringBuilder.ToString();
         }
     }
 }

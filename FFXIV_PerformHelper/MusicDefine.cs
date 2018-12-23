@@ -45,26 +45,43 @@ namespace FFXIV_PerformHelper
 
         public enum Octave
         {
+            Down,
             Default,
             Up,
-            Down,
             DoubleUp,
         }
 
         public static string[] OctaveStr =
         {
+            "↓",
             "  ",
             "↑",
-            "↓",
             "↑↑",
         };
 
         public static int[] OctaveInt =
         {
+            -1,
             0,
             1,
-            -1,
             2,
         };
+
+        public static string GetStringCode(Code code, Octave octave)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (octave != Octave.Default)
+            {
+                string mark = OctaveStr[(int)octave];
+                stringBuilder.Append(mark);
+            }
+
+            int codeIdx = (int)code;
+            string str = CodeStr[codeIdx];
+            stringBuilder.Append(str);
+
+            return stringBuilder.ToString();
+        }
     }
 }
