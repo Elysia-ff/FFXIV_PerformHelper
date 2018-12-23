@@ -56,8 +56,6 @@ namespace FFXIV_PerformHelper
             InitializeItems();
 
             TimeManager.OnUpdate += TimeManager_OnUpdate;
-
-            Stop();
         }
 
         private void InitializeItems()
@@ -84,6 +82,8 @@ namespace FFXIV_PerformHelper
             SetLocationText(sheetWindow.Location);
             noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
             startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+
+            SetEnable();
         }
 
         private void PlayBtn_Click(object sender, EventArgs e)
@@ -97,17 +97,21 @@ namespace FFXIV_PerformHelper
         public void Play()
         {
             if (IsPlaying)
+            {
+                Stop();
                 return;
+            }
 
             IsPlaying = true;
+            SetEnable();
             ElapsedTime = 0d;
-
             TimeManager.Reset();
         }
 
         public void Stop()
         {
             IsPlaying = false;
+            SetEnable();
         }
 
         private void TimeManager_OnUpdate()
@@ -144,6 +148,7 @@ namespace FFXIV_PerformHelper
                 modifiedSheetData = new SheetData(sheetData);
 
                 DrawInfo();
+                SetEnable();
             //}
             //catch
             //{
@@ -177,6 +182,8 @@ namespace FFXIV_PerformHelper
                 codeComboBox.ResetText();
                 octaveComboBox.ResetText();
                 durationText.ResetText();
+
+                SetEnable();
                 return;
             }
 
@@ -186,6 +193,33 @@ namespace FFXIV_PerformHelper
             codeComboBox.SelectedItem = (note.code == MusicDefine.Code.REST) ? note.code.ToString() : MusicDefine.CodeStr[(int)note.code];
             octaveComboBox.SelectedItem = MusicDefine.OctaveStr[(int)note.octave];
             durationText.Text = note.duration.ToString();
+
+            SetEnable();
+        }
+
+        private void SetEnable()
+        {
+            browseBtn.Enabled = !IsPlaying;
+            playBtn.Text = IsPlaying ? "STOP" : "PLAY";
+            noteSpeedTextBox.Enabled = !IsPlaying;
+            startDelayTextBox.Enabled = !IsPlaying;
+            resetSettingBtn.Enabled = !IsPlaying;
+
+            bool showMainInfo = sheetData != null && !IsPlaying;
+            nameText.Enabled = showMainInfo;
+            bpmText.Enabled = showMainInfo;
+            codeList.Enabled = showMainInfo;
+            addBtn.Enabled = showMainInfo;
+            insertBtn.Enabled = showMainInfo;
+            removeBtn.Enabled = showMainInfo;
+            saveBtn.Enabled = showMainInfo;
+
+            bool showCodeInfo = codeList.SelectedIndex >= 0 && codeList.SelectedIndex < codeList.Items.Count && !IsPlaying;
+            codeComboBox.Enabled = showCodeInfo;
+            octaveComboBox.Enabled = showCodeInfo;
+            durationText.Enabled = showCodeInfo;
+            applyBtn.Enabled = showCodeInfo;
+            resetBtn.Enabled = showCodeInfo;
         }
 
         private void BPMText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
