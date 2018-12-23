@@ -24,7 +24,7 @@ namespace FFXIV_PerformHelper
         private SheetData sheetData;
         public string GetMusicName() { return sheetData.name; }
         public string GetBPM() { return sheetData.bpm.ToString(); }
-        public List<SheetData.Note> GetNotes() { return sheetData.notes; }
+        public List<Note> GetNotes() { return sheetData.notes; }
         public double GetTimeRatio() { if (sheetData == null) return 0; return ElapsedTime / sheetData.endTime; }
 
         private SheetData modifiedSheetData;
@@ -150,7 +150,7 @@ namespace FFXIV_PerformHelper
             bpmText.Text = modifiedSheetData.bpm.ToString();
 
             codeList.Items.Clear();
-            List<SheetData.Note> notes = modifiedSheetData.notes;
+            List<Note> notes = modifiedSheetData.notes;
             for (int i = 0; i < notes.Count; i++)
             {
                 codeList.Items.Add(notes[i].str);
@@ -174,7 +174,7 @@ namespace FFXIV_PerformHelper
                 return;
             }
 
-            SheetData.Note note = modifiedSheetData.notes[idx];
+            Note note = modifiedSheetData.notes[idx];
 
             strText.Text = note.str;
             codeComboBox.SelectedItem = (note.code == MusicDefine.Code.REST) ? note.code.ToString() : MusicDefine.CodeStr[(int)note.code];
@@ -187,7 +187,7 @@ namespace FFXIV_PerformHelper
             if (modifiedSheetData == null)
                 return;
 
-            SheetData.Note note = SheetData.Note.GetDefault();
+            Note note = Note.GetDefault();
             modifiedSheetData.notes.Add(note);
 
             DrawInfo();
@@ -200,7 +200,7 @@ namespace FFXIV_PerformHelper
                 return;
 
             int idx = codeList.SelectedIndex;
-            SheetData.Note note = SheetData.Note.GetDefault();
+            Note note = Note.GetDefault();
             modifiedSheetData.notes.Insert(idx, note);
 
             DrawInfo();
@@ -249,7 +249,7 @@ namespace FFXIV_PerformHelper
                 code = MusicDefine.Code.REST;
             MusicDefine.Octave octave = (MusicDefine.Octave)octaveComboBox.SelectedIndex;
             double duration = double.Parse(durationText.Text);
-            SheetData.Note note = new SheetData.Note(code, octave, duration);
+            Note note = new Note(code, octave, duration);
 
             int idx = codeList.SelectedIndex;
             modifiedSheetData.notes[idx] = note;

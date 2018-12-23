@@ -32,7 +32,7 @@ namespace FFXIV_PerformHelper
                     int octave = int.Parse(xn[XmlDefine.Pitch][XmlDefine.Octave].InnerText);
                     double duration = double.Parse(xn[XmlDefine.Duration].InnerText);
 
-                    SheetData.Note note = new SheetData.Note(step, octave, duration);
+                    Note note = new Note(step, octave, duration);
                     data.notes.Add(note);
                 }
             }

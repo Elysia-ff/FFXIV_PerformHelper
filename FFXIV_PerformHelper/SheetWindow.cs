@@ -41,7 +41,7 @@ namespace FFXIV_PerformHelper
         };
 
         private FFXIV_PerformHelper player;
-        private List<SheetData.Note> notes;
+        private List<Note> notes;
 
         public SheetWindow(FFXIV_PerformHelper _player)
         {
