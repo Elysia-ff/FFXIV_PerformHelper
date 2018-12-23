@@ -59,6 +59,7 @@ namespace FFXIV_PerformHelper
             this.noteSpeedTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.startDelayTextBox = new System.Windows.Forms.TextBox();
+            this.resetSettingBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -328,12 +329,23 @@ namespace FFXIV_PerformHelper
             this.startDelayTextBox.TabIndex = 29;
             this.startDelayTextBox.TextChanged += new System.EventHandler(this.StartDelayTextBox_TextChanged);
             // 
+            // resetSettingBtn
+            // 
+            this.resetSettingBtn.Location = new System.Drawing.Point(540, 413);
+            this.resetSettingBtn.Name = "resetSettingBtn";
+            this.resetSettingBtn.Size = new System.Drawing.Size(250, 23);
+            this.resetSettingBtn.TabIndex = 30;
+            this.resetSettingBtn.Text = "Reset Settings";
+            this.resetSettingBtn.UseVisualStyleBackColor = true;
+            this.resetSettingBtn.Click += new System.EventHandler(this.ResetSettingBtn_Click);
+            // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resetSettingBtn);
             this.Controls.Add(this.startDelayTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.noteSpeedTextBox);
@@ -401,6 +413,7 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.TextBox noteSpeedTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox startDelayTextBox;
+        private System.Windows.Forms.Button resetSettingBtn;
     }
 }
 

@@ -375,5 +375,14 @@ namespace FFXIV_PerformHelper
                     sheetData.Apply();
             }
         }
+
+        private void ResetSettingBtn_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+
+            sheetWindow.Location = Properties.Settings.Default.Location;
+            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
+            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+        }
     }
 }
