@@ -15,6 +15,7 @@ namespace FFXIV_PerformHelper
         public TimeManager TimeManager { get; private set; }
         private OpenFileDialog openDialog;
         private SaveFileDialog saveDialog;
+        private NoticeDialog noticeDialog;
 
         private SheetWindow sheetWindow;
 
@@ -45,6 +46,7 @@ namespace FFXIV_PerformHelper
             {
                 Filter = "XML|*.xml",
             };
+            noticeDialog = new NoticeDialog();
             sheetWindow = new SheetWindow(this)
             {
                 Location = Setting.location
@@ -159,8 +161,8 @@ namespace FFXIV_PerformHelper
                 return;
             }
 
-            //try
-            //{
+            try
+            {
                 directoryText.Text = openDialog.FileName;
                 loadedXML.Load(openDialog.FileName);
                 sheetData = sheetManager.Read(loadedXML);
@@ -169,10 +171,11 @@ namespace FFXIV_PerformHelper
 
                 DrawInfo();
                 SetEnable();
-            //}
-            //catch
-            //{
-            //}
+            }
+            catch (Exception exception)
+            {
+                NoticeDialog.Show(exception.Message);
+            }
         }
 
         private void DrawInfo()
@@ -247,7 +250,10 @@ namespace FFXIV_PerformHelper
             string value = bpmText.Text;
 
             if (!int.TryParse(value, out int v))
+            {
                 e.Cancel = true;
+                NoticeDialog.ShowValidatingError();
+            }
         }
 
         private void CodeComboBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -255,7 +261,10 @@ namespace FFXIV_PerformHelper
             string value = codeComboBox.Text;
 
             if (!codeComboBox.Items.Contains(value))
+            {
                 e.Cancel = true;
+                NoticeDialog.ShowValidatingError();
+            }
         }
 
         private void OctaveComboBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -263,7 +272,10 @@ namespace FFXIV_PerformHelper
             string value = octaveComboBox.Text;
 
             if (!octaveComboBox.Items.Contains(value))
+            {
                 e.Cancel = true;
+                NoticeDialog.ShowValidatingError();
+            }
         }
 
         private void DurationText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -271,7 +283,10 @@ namespace FFXIV_PerformHelper
             string value = durationText.Text;
 
             if (!double.TryParse(value, out double v))
+            {
                 e.Cancel = true;
+                NoticeDialog.ShowValidatingError();
+            }
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
