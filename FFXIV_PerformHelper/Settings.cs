@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,20 @@ namespace FFXIV_PerformHelper
 {
     public static class Setting
     {
+        public static Point location;
+        public static double noteSpeed;
+        public static double startDelay;
+
         public static int width;
         public static int height;
         public static int[] barX = new int[(int)MusicDefine.Code.Count + 1];
 
         public static void Initialize()
         {
+            location = Properties.Settings.Default.Location;
+            noteSpeed = Properties.Settings.Default.NoteSpeed;
+            startDelay = Properties.Settings.Default.StartDelay;
+
             width = Properties.Settings.Default.BarWidth;
             height = Properties.Settings.Default.BarHeight;
             barX[0] = Properties.Settings.Default.BarX0;
@@ -33,6 +42,10 @@ namespace FFXIV_PerformHelper
 
         public static void Save()
         {
+            Properties.Settings.Default.Location = location;
+            Properties.Settings.Default.NoteSpeed = noteSpeed;
+            Properties.Settings.Default.StartDelay = startDelay;
+
             Properties.Settings.Default.BarWidth = width;
             Properties.Settings.Default.BarHeight = height;
             Properties.Settings.Default.BarX0 = barX[0];

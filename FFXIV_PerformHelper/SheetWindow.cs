@@ -191,7 +191,7 @@ namespace FFXIV_PerformHelper
 
         private int GetPixel(double time)
         {
-            double noteSpeed = Properties.Settings.Default.NoteSpeed;
+            double noteSpeed = Setting.noteSpeed;
             double timeLeft = time - player.ElapsedTime;
             double pixel = Height - (timeLeft * noteSpeed);
 
@@ -209,8 +209,8 @@ namespace FFXIV_PerformHelper
 
         private void SheetWindow_LocationChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Location = Location;
-            player.SetLocationText(Properties.Settings.Default.Location);
+            Setting.location = Location;
+            player.SetLocationText();
         }
     }
 }

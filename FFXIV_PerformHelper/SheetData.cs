@@ -47,7 +47,7 @@ namespace FFXIV_PerformHelper
 
         public void Apply()
         {
-            double startTime = Properties.Settings.Default.StartDelay;
+            double startTime = Setting.startDelay;
             double t = 0;
             double bps = bpm / 60d;
             double beatTime = 1d / bps;

@@ -47,7 +47,7 @@ namespace FFXIV_PerformHelper
             };
             sheetWindow = new SheetWindow(this)
             {
-                Location = Properties.Settings.Default.Location
+                Location = Setting.location
             };
             sheetWindow.Show();
             loadedXML = new XmlDocument();
@@ -85,9 +85,9 @@ namespace FFXIV_PerformHelper
 
         private void InitializeSettings()
         {
-            SetLocationText(sheetWindow.Location);
-            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
-            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+            SetLocationText();
+            noteSpeedTextBox.Text = Setting.noteSpeed.ToString();
+            startDelayTextBox.Text = Setting.startDelay.ToString();
 
             cTextBox.Text = Setting.barX[0].ToString();
             cSharpTextBox.Text = Setting.barX[1].ToString();
@@ -372,13 +372,13 @@ namespace FFXIV_PerformHelper
             }
         }
 
-        public void SetLocationText(Point point)
+        public void SetLocationText()
         {
             if (locationXTextBox == null || locationYTextBox == null)
                 return;
 
-            locationXTextBox.Text = point.X.ToString();
-            locationYTextBox.Text = point.Y.ToString();
+            locationXTextBox.Text = Setting.location.X.ToString();
+            locationYTextBox.Text = Setting.location.Y.ToString();
         }
 
         private void LocationXTextBox_TextChanged(object sender, EventArgs e)
@@ -411,7 +411,7 @@ namespace FFXIV_PerformHelper
 
             if (double.TryParse(value, out double v))
             {
-                Properties.Settings.Default.NoteSpeed = v;
+                Setting.noteSpeed = v;
             }
         }
 
@@ -421,7 +421,7 @@ namespace FFXIV_PerformHelper
 
             if (double.TryParse(value, out double v))
             {
-                Properties.Settings.Default.StartDelay = v;
+                Setting.startDelay = v;
 
                 if (sheetData != null)
                     sheetData.Apply();
@@ -432,18 +432,18 @@ namespace FFXIV_PerformHelper
         {
             Setting.Save();
 
-            sheetWindow.Location = Properties.Settings.Default.Location;
-            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
-            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+            sheetWindow.Location = Setting.location;
+            noteSpeedTextBox.Text = Setting.noteSpeed.ToString();
+            startDelayTextBox.Text = Setting.startDelay.ToString();
         }
 
         private void ResetSettingBtn_Click(object sender, EventArgs e)
         {
             Setting.Reset();
 
-            sheetWindow.Location = Properties.Settings.Default.Location;
-            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
-            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+            sheetWindow.Location = Setting.location;
+            noteSpeedTextBox.Text = Setting.noteSpeed.ToString();
+            startDelayTextBox.Text = Setting.startDelay.ToString();
             InitializeSettings();
             sheetWindow.ResizeWindow();
         }
