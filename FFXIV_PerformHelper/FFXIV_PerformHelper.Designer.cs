@@ -60,6 +60,41 @@ namespace FFXIV_PerformHelper
             this.label7 = new System.Windows.Forms.Label();
             this.startDelayTextBox = new System.Windows.Forms.TextBox();
             this.resetSettingBtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cSharpTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.heightTextBox = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.widthTextBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.highCTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.bTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.bFlatTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.aTextBox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.gSharpTextBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.gTextBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.fSharpTextBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.fTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.eTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.eFlatTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.saveSettingBtn = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -232,7 +267,7 @@ namespace FFXIV_PerformHelper
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(12, 383);
+            this.saveBtn.Location = new System.Drawing.Point(12, 255);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(499, 23);
             this.saveBtn.TabIndex = 19;
@@ -262,7 +297,7 @@ namespace FFXIV_PerformHelper
             // 
             // newFileBtn
             // 
-            this.newFileBtn.Location = new System.Drawing.Point(12, 413);
+            this.newFileBtn.Location = new System.Drawing.Point(12, 549);
             this.newFileBtn.Name = "newFileBtn";
             this.newFileBtn.Size = new System.Drawing.Size(499, 23);
             this.newFileBtn.TabIndex = 22;
@@ -281,7 +316,7 @@ namespace FFXIV_PerformHelper
             // 
             // locationXTextBox
             // 
-            this.locationXTextBox.Location = new System.Drawing.Point(694, 10);
+            this.locationXTextBox.Location = new System.Drawing.Point(688, 10);
             this.locationXTextBox.Name = "locationXTextBox";
             this.locationXTextBox.Size = new System.Drawing.Size(45, 21);
             this.locationXTextBox.TabIndex = 24;
@@ -289,7 +324,7 @@ namespace FFXIV_PerformHelper
             // 
             // locationYTextBox
             // 
-            this.locationYTextBox.Location = new System.Drawing.Point(745, 10);
+            this.locationYTextBox.Location = new System.Drawing.Point(739, 10);
             this.locationYTextBox.Name = "locationYTextBox";
             this.locationYTextBox.Size = new System.Drawing.Size(45, 21);
             this.locationYTextBox.TabIndex = 25;
@@ -298,7 +333,7 @@ namespace FFXIV_PerformHelper
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(540, 48);
+            this.label6.Location = new System.Drawing.Point(10, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 26;
@@ -306,7 +341,7 @@ namespace FFXIV_PerformHelper
             // 
             // noteSpeedTextBox
             // 
-            this.noteSpeedTextBox.Location = new System.Drawing.Point(694, 43);
+            this.noteSpeedTextBox.Location = new System.Drawing.Point(158, 15);
             this.noteSpeedTextBox.Name = "noteSpeedTextBox";
             this.noteSpeedTextBox.Size = new System.Drawing.Size(96, 21);
             this.noteSpeedTextBox.TabIndex = 27;
@@ -315,7 +350,7 @@ namespace FFXIV_PerformHelper
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(540, 81);
+            this.label7.Location = new System.Drawing.Point(10, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 12);
             this.label7.TabIndex = 28;
@@ -323,7 +358,7 @@ namespace FFXIV_PerformHelper
             // 
             // startDelayTextBox
             // 
-            this.startDelayTextBox.Location = new System.Drawing.Point(694, 76);
+            this.startDelayTextBox.Location = new System.Drawing.Point(158, 40);
             this.startDelayTextBox.Name = "startDelayTextBox";
             this.startDelayTextBox.Size = new System.Drawing.Size(96, 21);
             this.startDelayTextBox.TabIndex = 29;
@@ -331,25 +366,341 @@ namespace FFXIV_PerformHelper
             // 
             // resetSettingBtn
             // 
-            this.resetSettingBtn.Location = new System.Drawing.Point(540, 413);
+            this.resetSettingBtn.Location = new System.Drawing.Point(530, 549);
             this.resetSettingBtn.Name = "resetSettingBtn";
-            this.resetSettingBtn.Size = new System.Drawing.Size(250, 23);
+            this.resetSettingBtn.Size = new System.Drawing.Size(260, 23);
             this.resetSettingBtn.TabIndex = 30;
             this.resetSettingBtn.Text = "Reset Settings";
             this.resetSettingBtn.UseVisualStyleBackColor = true;
             this.resetSettingBtn.Click += new System.EventHandler(this.ResetSettingBtn_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 12);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "C";
+            // 
+            // cTextBox
+            // 
+            this.cTextBox.Location = new System.Drawing.Point(158, 15);
+            this.cTextBox.Name = "cTextBox";
+            this.cTextBox.Size = new System.Drawing.Size(96, 21);
+            this.cTextBox.TabIndex = 33;
+            this.cTextBox.TextChanged += new System.EventHandler(this.CTextBox_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 45);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 12);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "C＃";
+            // 
+            // cSharpTextBox
+            // 
+            this.cSharpTextBox.Location = new System.Drawing.Point(158, 40);
+            this.cSharpTextBox.Name = "cSharpTextBox";
+            this.cSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.cSharpTextBox.TabIndex = 35;
+            this.cSharpTextBox.TextChanged += new System.EventHandler(this.CSharpTextBox_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.noteSpeedTextBox);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.startDelayTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(530, 37);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(260, 72);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Music";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.heightTextBox);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.widthTextBox);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.highCTextBox);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.bTextBox);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.bFlatTextBox);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.aTextBox);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.gSharpTextBox);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.gTextBox);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.fSharpTextBox);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.fTextBox);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.eTextBox);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.eFlatTextBox);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.dTextBox);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.cTextBox);
+            this.groupBox2.Controls.Add(this.cSharpTextBox);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Location = new System.Drawing.Point(530, 115);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(260, 399);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Sheet";
+            // 
+            // heightTextBox
+            // 
+            this.heightTextBox.Location = new System.Drawing.Point(158, 365);
+            this.heightTextBox.Name = "heightTextBox";
+            this.heightTextBox.Size = new System.Drawing.Size(96, 21);
+            this.heightTextBox.TabIndex = 61;
+            this.heightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 370);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(40, 12);
+            this.label22.TabIndex = 60;
+            this.label22.Text = "Height";
+            // 
+            // widthTextBox
+            // 
+            this.widthTextBox.Location = new System.Drawing.Point(158, 340);
+            this.widthTextBox.Name = "widthTextBox";
+            this.widthTextBox.Size = new System.Drawing.Size(96, 21);
+            this.widthTextBox.TabIndex = 59;
+            this.widthTextBox.TextChanged += new System.EventHandler(this.WidthText_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 345);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(35, 12);
+            this.label21.TabIndex = 58;
+            this.label21.Text = "Width";
+            // 
+            // highCTextBox
+            // 
+            this.highCTextBox.Location = new System.Drawing.Point(158, 315);
+            this.highCTextBox.Name = "highCTextBox";
+            this.highCTextBox.Size = new System.Drawing.Size(96, 21);
+            this.highCTextBox.TabIndex = 57;
+            this.highCTextBox.TextChanged += new System.EventHandler(this.HighCTextBox_TextChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 320);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(23, 12);
+            this.label20.TabIndex = 56;
+            this.label20.Text = "↑C";
+            // 
+            // bTextBox
+            // 
+            this.bTextBox.Location = new System.Drawing.Point(158, 290);
+            this.bTextBox.Name = "bTextBox";
+            this.bTextBox.Size = new System.Drawing.Size(96, 21);
+            this.bTextBox.TabIndex = 55;
+            this.bTextBox.TextChanged += new System.EventHandler(this.BTextBox_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(10, 295);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 12);
+            this.label19.TabIndex = 54;
+            this.label19.Text = "B";
+            // 
+            // bFlatTextBox
+            // 
+            this.bFlatTextBox.Location = new System.Drawing.Point(158, 265);
+            this.bFlatTextBox.Name = "bFlatTextBox";
+            this.bFlatTextBox.Size = new System.Drawing.Size(96, 21);
+            this.bFlatTextBox.TabIndex = 53;
+            this.bFlatTextBox.TextChanged += new System.EventHandler(this.BFlatTextBox_TextChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(10, 270);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 12);
+            this.label18.TabIndex = 52;
+            this.label18.Text = "B♭";
+            // 
+            // aTextBox
+            // 
+            this.aTextBox.Location = new System.Drawing.Point(158, 240);
+            this.aTextBox.Name = "aTextBox";
+            this.aTextBox.Size = new System.Drawing.Size(96, 21);
+            this.aTextBox.TabIndex = 51;
+            this.aTextBox.TextChanged += new System.EventHandler(this.ATextBox_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(10, 245);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 12);
+            this.label17.TabIndex = 50;
+            this.label17.Text = "A";
+            // 
+            // gSharpTextBox
+            // 
+            this.gSharpTextBox.Location = new System.Drawing.Point(158, 215);
+            this.gSharpTextBox.Name = "gSharpTextBox";
+            this.gSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.gSharpTextBox.TabIndex = 49;
+            this.gSharpTextBox.TextChanged += new System.EventHandler(this.GSharpTextBox_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(10, 220);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 12);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "G＃";
+            // 
+            // gTextBox
+            // 
+            this.gTextBox.Location = new System.Drawing.Point(158, 190);
+            this.gTextBox.Name = "gTextBox";
+            this.gTextBox.Size = new System.Drawing.Size(96, 21);
+            this.gTextBox.TabIndex = 47;
+            this.gTextBox.TextChanged += new System.EventHandler(this.GTextBox_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 195);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(14, 12);
+            this.label15.TabIndex = 46;
+            this.label15.Text = "G";
+            // 
+            // fSharpTextBox
+            // 
+            this.fSharpTextBox.Location = new System.Drawing.Point(158, 165);
+            this.fSharpTextBox.Name = "fSharpTextBox";
+            this.fSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.fSharpTextBox.TabIndex = 45;
+            this.fSharpTextBox.TextChanged += new System.EventHandler(this.FSharpTextBox_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 170);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(24, 12);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "F＃";
+            // 
+            // fTextBox
+            // 
+            this.fTextBox.Location = new System.Drawing.Point(158, 140);
+            this.fTextBox.Name = "fTextBox";
+            this.fTextBox.Size = new System.Drawing.Size(96, 21);
+            this.fTextBox.TabIndex = 43;
+            this.fTextBox.TextChanged += new System.EventHandler(this.FTextBox_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 145);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(12, 12);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "F";
+            // 
+            // eTextBox
+            // 
+            this.eTextBox.Location = new System.Drawing.Point(158, 115);
+            this.eTextBox.Name = "eTextBox";
+            this.eTextBox.Size = new System.Drawing.Size(96, 21);
+            this.eTextBox.TabIndex = 41;
+            this.eTextBox.TextChanged += new System.EventHandler(this.ETextBox_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 120);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 12);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "E";
+            // 
+            // eFlatTextBox
+            // 
+            this.eFlatTextBox.Location = new System.Drawing.Point(158, 90);
+            this.eFlatTextBox.Name = "eFlatTextBox";
+            this.eFlatTextBox.Size = new System.Drawing.Size(96, 21);
+            this.eFlatTextBox.TabIndex = 39;
+            this.eFlatTextBox.TextChanged += new System.EventHandler(this.EFlatTextBox_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 12);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "E♭";
+            // 
+            // dTextBox
+            // 
+            this.dTextBox.Location = new System.Drawing.Point(158, 65);
+            this.dTextBox.Name = "dTextBox";
+            this.dTextBox.Size = new System.Drawing.Size(96, 21);
+            this.dTextBox.TabIndex = 37;
+            this.dTextBox.TextChanged += new System.EventHandler(this.DTextBox_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 12);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "D";
+            // 
+            // saveSettingBtn
+            // 
+            this.saveSettingBtn.Location = new System.Drawing.Point(530, 520);
+            this.saveSettingBtn.Name = "saveSettingBtn";
+            this.saveSettingBtn.Size = new System.Drawing.Size(260, 23);
+            this.saveSettingBtn.TabIndex = 38;
+            this.saveSettingBtn.Text = "Save Settings";
+            this.saveSettingBtn.UseVisualStyleBackColor = true;
+            this.saveSettingBtn.Click += new System.EventHandler(this.SaveSettingBtn_Click);
             // 
             // FFXIV_PerformHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 582);
+            this.Controls.Add(this.saveSettingBtn);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.resetSettingBtn);
-            this.Controls.Add(this.startDelayTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.noteSpeedTextBox);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.locationYTextBox);
             this.Controls.Add(this.locationXTextBox);
             this.Controls.Add(this.label5);
@@ -377,6 +728,10 @@ namespace FFXIV_PerformHelper
             this.Controls.Add(this.label1);
             this.Name = "FFXIV_PerformHelper";
             this.Text = "FFXIV Perform Helper";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,6 +769,39 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox startDelayTextBox;
         private System.Windows.Forms.Button resetSettingBtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox cTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox cSharpTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox dTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox eFlatTextBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox eTextBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox fTextBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox fSharpTextBox;
+        private System.Windows.Forms.TextBox gTextBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox gSharpTextBox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox aTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox bFlatTextBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox bTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox highCTextBox;
+        private System.Windows.Forms.Button saveSettingBtn;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox widthTextBox;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox heightTextBox;
     }
 }
 

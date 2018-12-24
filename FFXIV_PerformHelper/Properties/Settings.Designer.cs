@@ -58,5 +58,185 @@ namespace FFXIV_PerformHelper.Properties {
                 this["StartDelay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BarX0 {
+            get {
+                return ((int)(this["BarX0"]));
+            }
+            set {
+                this["BarX0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int BarX1 {
+            get {
+                return ((int)(this["BarX1"]));
+            }
+            set {
+                this["BarX1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int BarX2 {
+            get {
+                return ((int)(this["BarX2"]));
+            }
+            set {
+                this["BarX2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("92")]
+        public int BarX3 {
+            get {
+                return ((int)(this["BarX3"]));
+            }
+            set {
+                this["BarX3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("122")]
+        public int BarX4 {
+            get {
+                return ((int)(this["BarX4"]));
+            }
+            set {
+                this["BarX4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("185")]
+        public int BarX5 {
+            get {
+                return ((int)(this["BarX5"]));
+            }
+            set {
+                this["BarX5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("216")]
+        public int BarX6 {
+            get {
+                return ((int)(this["BarX6"]));
+            }
+            set {
+                this["BarX6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("247")]
+        public int BarX7 {
+            get {
+                return ((int)(this["BarX7"]));
+            }
+            set {
+                this["BarX7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("278")]
+        public int BarX8 {
+            get {
+                return ((int)(this["BarX8"]));
+            }
+            set {
+                this["BarX8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("309")]
+        public int BarX9 {
+            get {
+                return ((int)(this["BarX9"]));
+            }
+            set {
+                this["BarX9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("340")]
+        public int BarX10 {
+            get {
+                return ((int)(this["BarX10"]));
+            }
+            set {
+                this["BarX10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("371")]
+        public int BarX11 {
+            get {
+                return ((int)(this["BarX11"]));
+            }
+            set {
+                this["BarX11"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("434")]
+        public int BarX12 {
+            get {
+                return ((int)(this["BarX12"]));
+            }
+            set {
+                this["BarX12"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public int BarWidth {
+            get {
+                return ((int)(this["BarWidth"]));
+            }
+            set {
+                this["BarWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("425")]
+        public int BarHeight {
+            get {
+                return ((int)(this["BarHeight"]));
+            }
+            set {
+                this["BarHeight"] = value;
+            }
+        }
     }
 }

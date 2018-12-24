@@ -23,24 +23,6 @@ namespace FFXIV_PerformHelper
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private int width = 40;
-        private int[] barX = new int[(int)MusicDefine.Code.Count + 1]
-        {
-            0,
-            30,
-            60,
-            92,
-            122,
-            185,
-            216,
-            247,
-            278,
-            309,
-            340,
-            371,
-            434
-        };
-
         private FFXIV_PerformHelper player;
         private List<Note> notes;
 
@@ -54,10 +36,11 @@ namespace FFXIV_PerformHelper
             ResizeWindow();
         }
 
-        private void ResizeWindow()
+        public void ResizeWindow()
         {
             Size size = Size;
-            size.Width = barX[barX.Length - 1] + width + penWitdh;
+            size.Width = MathExtension.Max(Setting.barX) + Setting.width + penWidth;
+            size.Height = moveRectHeight + Setting.height;
             Size = size;
         }
 
@@ -105,7 +88,7 @@ namespace FFXIV_PerformHelper
                         {
                             MusicDefine.Octave octave = notes[i].octave - 1;
                             string s = MusicDefine.GetStringCode(MusicDefine.Code.C, octave);
-                            DrawBar(g, barX.Length - 1, startPixel, endPixel, s);
+                            DrawBar(g, Setting.barX.Length - 1, startPixel, endPixel, s);
                         }
 
                         if (notes[i].octave != MusicDefine.Octave.DoubleUp)
@@ -160,7 +143,7 @@ namespace FFXIV_PerformHelper
 
         private void DrawMoveRect(Graphics g)
         {
-            Rectangle rect = new Rectangle(0, 0, Width - penWitdh, moveRectHeight + penWitdh);
+            Rectangle rect = new Rectangle(0, 0, Width - penWidth, moveRectHeight + penWidth);
             g.FillRectangle(moveRectBrush, rect.X, rect.Y, rect.Width, rect.Height);
             g.DrawRectangle(moveRectPen, rect.X, rect.Y, rect.Width, rect.Height);
 
@@ -168,14 +151,14 @@ namespace FFXIV_PerformHelper
             {
                 double t = player.GetTimeRatio();
                 int w = MathExtension.Lerp(0, Width, t);
-                Rectangle timeRect = new Rectangle(0, 0, w - penWitdh, timeRectHeight + penWitdh);
+                Rectangle timeRect = new Rectangle(0, 0, w - penWidth, timeRectHeight + penWidth);
                 g.FillRectangle(timeRectBrush, timeRect.X, timeRect.Y, timeRect.Width, timeRect.Height);
                 g.DrawRectangle(moveRectPen, timeRect.X, timeRect.Y, timeRect.Width, timeRect.Height);
             }
 
             if (player.IsLoaded)
             {
-                Rectangle nameRect = new Rectangle(0, timeRectHeight, Width, moveRectHeight - penWitdh);
+                Rectangle nameRect = new Rectangle(0, timeRectHeight, Width, moveRectHeight - penWidth);
                 DrawText(g, nameRect, player.GetMusicName(), nearStringFormat);
                 DrawText(g, nameRect, player.GetBPM(), farStringFormat);
             }
@@ -183,26 +166,26 @@ namespace FFXIV_PerformHelper
 
         private void DrawBackground(Graphics g, int idx)
         {
-            Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
+            Rectangle rect = new Rectangle(Setting.barX[idx], 0, Setting.width, Height - penWidth);
             g.FillRectangle(backgroundBrush, rect.X, rect.Y, rect.Width, rect.Height);
             g.DrawRectangle(backgroundPen, rect.X, rect.Y, rect.Width, rect.Height);
         }
 
         private void DrawText(Graphics g, int idx, string value)
         {
-            Rectangle rect = new Rectangle(barX[idx], 0, width, Height - penWitdh);
+            Rectangle rect = new Rectangle(Setting.barX[idx], 0, Setting.width, Height - penWidth);
             DrawText(g, rect, value, centerStringFormat);
         }
 
         private void DrawBar(Graphics g, int idx, int startPixel, int endPixel, string code)
         {
             int h = startPixel - endPixel;
-            Rectangle rect = new Rectangle(barX[idx], endPixel, width, h - penWitdh);
+            Rectangle rect = new Rectangle(Setting.barX[idx], endPixel, Setting.width, h - penWidth);
             g.FillRectangle(barBrush, rect.X, rect.Y, rect.Width, rect.Height);
             g.DrawRectangle(barPen, rect.X, rect.Y, rect.Width, rect.Height);
 
             Font f = Font;
-            Rectangle stringRect = new Rectangle(barX[idx], startPixel - f.Height, width, f.Height);
+            Rectangle stringRect = new Rectangle(Setting.barX[idx], startPixel - f.Height, Setting.width, f.Height);
             DrawText(g, stringRect, code, centerStringFormat);
         }
 
@@ -226,10 +209,8 @@ namespace FFXIV_PerformHelper
 
         private void SheetWindow_LocationChanged(object sender, EventArgs e)
         {
-            player.SetLocationText(Location);
-
             Properties.Settings.Default.Location = Location;
-            Properties.Settings.Default.Save();
+            player.SetLocationText(Properties.Settings.Default.Location);
         }
     }
 }

@@ -11,5 +11,50 @@
     <Setting Name="StartDelay" Type="System.Double" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
+    <Setting Name="BarX0" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BarX1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="BarX2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="BarX3" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">92</Value>
+    </Setting>
+    <Setting Name="BarX4" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">122</Value>
+    </Setting>
+    <Setting Name="BarX5" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">185</Value>
+    </Setting>
+    <Setting Name="BarX6" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">216</Value>
+    </Setting>
+    <Setting Name="BarX7" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">247</Value>
+    </Setting>
+    <Setting Name="BarX8" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">278</Value>
+    </Setting>
+    <Setting Name="BarX9" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">309</Value>
+    </Setting>
+    <Setting Name="BarX10" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">340</Value>
+    </Setting>
+    <Setting Name="BarX11" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">371</Value>
+    </Setting>
+    <Setting Name="BarX12" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">434</Value>
+    </Setting>
+    <Setting Name="BarWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="BarHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">425</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

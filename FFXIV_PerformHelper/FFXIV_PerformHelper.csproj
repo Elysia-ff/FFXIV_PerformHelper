@@ -71,6 +71,7 @@
       <DependentUpon>SheetWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeManager.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="XmlDefine.cs" />
     <Compile Include="SheetManager.cs" />
     <EmbeddedResource Include="FFXIV_PerformHelper.resx">

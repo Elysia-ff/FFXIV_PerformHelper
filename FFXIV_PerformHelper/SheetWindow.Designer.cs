@@ -12,17 +12,17 @@ namespace FFXIV_PerformHelper
 
         private const int moveRectHeight = 20;
         private const int timeRectHeight = 5;
-        private const int penWitdh = 1;
+        private const int penWidth = 1;
 
         private SolidBrush moveRectBrush = new SolidBrush(Color.Black);
-        private Pen moveRectPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
+        private Pen moveRectPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWidth)
         {
             LineJoin = LineJoin.Bevel,
         };
         private SolidBrush timeRectBrush = new SolidBrush(Color.White);
 
         private SolidBrush backgroundBrush = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
-        private Pen backgroundPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
+        private Pen backgroundPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWidth)
         {
             LineJoin = LineJoin.Bevel,
         };
@@ -43,17 +43,17 @@ namespace FFXIV_PerformHelper
             Alignment = StringAlignment.Far,
         };
 
-        private Pen textPen = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWitdh)
+        private Pen textPen = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWidth)
         {
             LineJoin = LineJoin.Round,
         };
 
         private SolidBrush barBrush = new SolidBrush(Color.FromArgb(0x8, 0x2c, 0x52));
-        private Pen barPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWitdh)
+        private Pen barPen = new Pen(Color.FromArgb(0x7b, 0xcf, 0xf7), penWidth)
         {
             LineJoin = LineJoin.Bevel,
         };
-        private Pen barTextPen = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWitdh)
+        private Pen barTextPen = new Pen(Color.FromArgb(0x46, 0x86, 0xa9), penWidth)
         {
             LineJoin = LineJoin.Round,
         };

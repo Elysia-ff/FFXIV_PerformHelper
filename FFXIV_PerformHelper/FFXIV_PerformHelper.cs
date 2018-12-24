@@ -35,6 +35,7 @@ namespace FFXIV_PerformHelper
 
         public FFXIV_PerformHelper()
         {
+            Setting.Initialize();
             TimeManager = new TimeManager();
             openDialog = new OpenFileDialog()
             {
@@ -54,6 +55,8 @@ namespace FFXIV_PerformHelper
 
             InitializeComponent();
             InitializeItems();
+            InitializeSettings();
+            SetEnable();
 
             TimeManager.OnUpdate += TimeManager_OnUpdate;
         }
@@ -78,12 +81,29 @@ namespace FFXIV_PerformHelper
             });
 
             octaveComboBox.Items.AddRange(MusicDefine.OctaveStr);
+        }
 
+        private void InitializeSettings()
+        {
             SetLocationText(sheetWindow.Location);
             noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
             startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
 
-            SetEnable();
+            cTextBox.Text = Setting.barX[0].ToString();
+            cSharpTextBox.Text = Setting.barX[1].ToString();
+            dTextBox.Text = Setting.barX[2].ToString();
+            eFlatTextBox.Text = Setting.barX[3].ToString();
+            eTextBox.Text = Setting.barX[4].ToString();
+            fTextBox.Text = Setting.barX[5].ToString();
+            fSharpTextBox.Text = Setting.barX[6].ToString();
+            gTextBox.Text = Setting.barX[7].ToString();
+            gSharpTextBox.Text = Setting.barX[8].ToString();
+            aTextBox.Text = Setting.barX[9].ToString();
+            bFlatTextBox.Text = Setting.barX[10].ToString();
+            bTextBox.Text = Setting.barX[11].ToString();
+            highCTextBox.Text = Setting.barX[12].ToString();
+            widthTextBox.Text = Setting.width.ToString();
+            heightTextBox.Text = Setting.height.ToString();
         }
 
         private void PlayBtn_Click(object sender, EventArgs e)
@@ -392,7 +412,6 @@ namespace FFXIV_PerformHelper
             if (double.TryParse(value, out double v))
             {
                 Properties.Settings.Default.NoteSpeed = v;
-                Properties.Settings.Default.Save();
             }
         }
 
@@ -403,20 +422,195 @@ namespace FFXIV_PerformHelper
             if (double.TryParse(value, out double v))
             {
                 Properties.Settings.Default.StartDelay = v;
-                Properties.Settings.Default.Save();
 
                 if (sheetData != null)
                     sheetData.Apply();
             }
         }
 
-        private void ResetSettingBtn_Click(object sender, EventArgs e)
+        private void SaveSettingBtn_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Reset();
+            Setting.Save();
 
             sheetWindow.Location = Properties.Settings.Default.Location;
             noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
             startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+        }
+
+        private void ResetSettingBtn_Click(object sender, EventArgs e)
+        {
+            Setting.Reset();
+
+            sheetWindow.Location = Properties.Settings.Default.Location;
+            noteSpeedTextBox.Text = Properties.Settings.Default.NoteSpeed.ToString();
+            startDelayTextBox.Text = Properties.Settings.Default.StartDelay.ToString();
+            InitializeSettings();
+            sheetWindow.ResizeWindow();
+        }
+
+        private void CTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = cTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[0] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void CSharpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = cSharpTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[1] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void DTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = dTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[2] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void EFlatTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = eFlatTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[3] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void ETextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = eTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[4] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void FTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = fTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[5] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void FSharpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = fSharpTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[6] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void GTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = gTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[7] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void GSharpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = gSharpTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[8] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void ATextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = aTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[9] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void BFlatTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = bFlatTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[10] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void BTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = bTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[11] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void HighCTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = highCTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.barX[12] = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void WidthText_TextChanged(object sender, EventArgs e)
+        {
+            string value = widthTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.width = v;
+                sheetWindow.ResizeWindow();
+            }
+        }
+
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string value = heightTextBox.Text;
+
+            if (int.TryParse(value, out int v))
+            {
+                Setting.height = v;
+                sheetWindow.ResizeWindow();
+            }
         }
     }
 }

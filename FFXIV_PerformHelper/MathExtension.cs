@@ -17,5 +17,17 @@ namespace FFXIV_PerformHelper
 
             return (int)(a + (b - a) * t);
         }
+
+        public static int Max(int[] v)
+        {
+            int max = v[0];
+            for (int i = 1; i < v.Length; i++)
+            {
+                if (max < v[i])
+                    max = v[i];
+            }
+
+            return max;
+        }
     }
 }
