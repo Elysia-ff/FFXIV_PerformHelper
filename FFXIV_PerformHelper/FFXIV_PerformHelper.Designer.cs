@@ -39,19 +39,7 @@ namespace FFXIV_PerformHelper
             this.nameText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bpmText = new System.Windows.Forms.TextBox();
-            this.strText = new System.Windows.Forms.Label();
-            this.codeComboBox = new System.Windows.Forms.ComboBox();
-            this.octaveComboBox = new System.Windows.Forms.ComboBox();
-            this.durationText = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.removeBtn = new System.Windows.Forms.Button();
-            this.insertBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.applyBtn = new System.Windows.Forms.Button();
-            this.resetBtn = new System.Windows.Forms.Button();
-            this.newFileBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.locationXTextBox = new System.Windows.Forms.TextBox();
             this.locationYTextBox = new System.Windows.Forms.TextBox();
@@ -146,7 +134,6 @@ namespace FFXIV_PerformHelper
             this.codeList.ScrollAlwaysVisible = true;
             this.codeList.Size = new System.Drawing.Size(499, 40);
             this.codeList.TabIndex = 7;
-            this.codeList.SelectedIndexChanged += new System.EventHandler(this.CodeList_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -161,6 +148,7 @@ namespace FFXIV_PerformHelper
             // 
             this.nameText.Location = new System.Drawing.Point(61, 101);
             this.nameText.Name = "nameText";
+            this.nameText.ReadOnly = true;
             this.nameText.Size = new System.Drawing.Size(324, 21);
             this.nameText.TabIndex = 5;
             // 
@@ -177,55 +165,9 @@ namespace FFXIV_PerformHelper
             // 
             this.bpmText.Location = new System.Drawing.Point(437, 101);
             this.bpmText.Name = "bpmText";
+            this.bpmText.ReadOnly = true;
             this.bpmText.Size = new System.Drawing.Size(74, 21);
             this.bpmText.TabIndex = 6;
-            this.bpmText.Validating += new System.ComponentModel.CancelEventHandler(this.BPMText_Validating);
-            // 
-            // strText
-            // 
-            this.strText.AutoSize = true;
-            this.strText.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.strText.Location = new System.Drawing.Point(50, 222);
-            this.strText.Name = "strText";
-            this.strText.Size = new System.Drawing.Size(22, 20);
-            this.strText.TabIndex = 9;
-            this.strText.Text = "C";
-            // 
-            // codeComboBox
-            // 
-            this.codeComboBox.DropDownWidth = 60;
-            this.codeComboBox.FormattingEnabled = true;
-            this.codeComboBox.Location = new System.Drawing.Point(120, 222);
-            this.codeComboBox.Name = "codeComboBox";
-            this.codeComboBox.Size = new System.Drawing.Size(60, 20);
-            this.codeComboBox.TabIndex = 11;
-            this.codeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodeComboBox_Validating);
-            // 
-            // octaveComboBox
-            // 
-            this.octaveComboBox.FormattingEnabled = true;
-            this.octaveComboBox.Location = new System.Drawing.Point(186, 222);
-            this.octaveComboBox.Name = "octaveComboBox";
-            this.octaveComboBox.Size = new System.Drawing.Size(60, 20);
-            this.octaveComboBox.TabIndex = 12;
-            this.octaveComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.OctaveComboBox_Validating);
-            // 
-            // durationText
-            // 
-            this.durationText.Location = new System.Drawing.Point(252, 221);
-            this.durationText.Name = "durationText";
-            this.durationText.Size = new System.Drawing.Size(60, 21);
-            this.durationText.TabIndex = 13;
-            this.durationText.Validating += new System.ComponentModel.CancelEventHandler(this.DurationText_Validating);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(318, 226);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "beat";
             // 
             // progressBar
             // 
@@ -235,80 +177,10 @@ namespace FFXIV_PerformHelper
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 4;
             // 
-            // removeBtn
-            // 
-            this.removeBtn.Location = new System.Drawing.Point(438, 175);
-            this.removeBtn.Name = "removeBtn";
-            this.removeBtn.Size = new System.Drawing.Size(74, 23);
-            this.removeBtn.TabIndex = 10;
-            this.removeBtn.Text = "Remove";
-            this.removeBtn.UseVisualStyleBackColor = true;
-            this.removeBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
-            // 
-            // insertBtn
-            // 
-            this.insertBtn.Location = new System.Drawing.Point(358, 175);
-            this.insertBtn.Name = "insertBtn";
-            this.insertBtn.Size = new System.Drawing.Size(74, 23);
-            this.insertBtn.TabIndex = 9;
-            this.insertBtn.Text = "Insert";
-            this.insertBtn.UseVisualStyleBackColor = true;
-            this.insertBtn.Click += new System.EventHandler(this.InsertBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.Location = new System.Drawing.Point(278, 175);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(74, 23);
-            this.addBtn.TabIndex = 8;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Location = new System.Drawing.Point(12, 255);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(499, 23);
-            this.saveBtn.TabIndex = 16;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // applyBtn
-            // 
-            this.applyBtn.Location = new System.Drawing.Point(358, 219);
-            this.applyBtn.Name = "applyBtn";
-            this.applyBtn.Size = new System.Drawing.Size(74, 23);
-            this.applyBtn.TabIndex = 14;
-            this.applyBtn.Text = "Apply";
-            this.applyBtn.UseVisualStyleBackColor = true;
-            this.applyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
-            // 
-            // resetBtn
-            // 
-            this.resetBtn.Location = new System.Drawing.Point(438, 219);
-            this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(74, 23);
-            this.resetBtn.TabIndex = 15;
-            this.resetBtn.Text = "Reset";
-            this.resetBtn.UseVisualStyleBackColor = true;
-            this.resetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
-            // 
-            // newFileBtn
-            // 
-            this.newFileBtn.Location = new System.Drawing.Point(12, 549);
-            this.newFileBtn.Name = "newFileBtn";
-            this.newFileBtn.Size = new System.Drawing.Size(499, 23);
-            this.newFileBtn.TabIndex = 17;
-            this.newFileBtn.Text = "New File";
-            this.newFileBtn.UseVisualStyleBackColor = true;
-            this.newFileBtn.Click += new System.EventHandler(this.NewFileBtn_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(540, 15);
+            this.label5.Location = new System.Drawing.Point(232, 215);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 23;
@@ -316,7 +188,7 @@ namespace FFXIV_PerformHelper
             // 
             // locationXTextBox
             // 
-            this.locationXTextBox.Location = new System.Drawing.Point(688, 10);
+            this.locationXTextBox.Location = new System.Drawing.Point(291, 210);
             this.locationXTextBox.Name = "locationXTextBox";
             this.locationXTextBox.Size = new System.Drawing.Size(45, 21);
             this.locationXTextBox.TabIndex = 18;
@@ -324,7 +196,7 @@ namespace FFXIV_PerformHelper
             // 
             // locationYTextBox
             // 
-            this.locationYTextBox.Location = new System.Drawing.Point(739, 10);
+            this.locationYTextBox.Location = new System.Drawing.Point(342, 210);
             this.locationYTextBox.Name = "locationYTextBox";
             this.locationYTextBox.Size = new System.Drawing.Size(45, 21);
             this.locationYTextBox.TabIndex = 19;
@@ -341,7 +213,7 @@ namespace FFXIV_PerformHelper
             // 
             // noteSpeedTextBox
             // 
-            this.noteSpeedTextBox.Location = new System.Drawing.Point(158, 15);
+            this.noteSpeedTextBox.Location = new System.Drawing.Point(104, 17);
             this.noteSpeedTextBox.Name = "noteSpeedTextBox";
             this.noteSpeedTextBox.Size = new System.Drawing.Size(96, 21);
             this.noteSpeedTextBox.TabIndex = 21;
@@ -358,7 +230,7 @@ namespace FFXIV_PerformHelper
             // 
             // startDelayTextBox
             // 
-            this.startDelayTextBox.Location = new System.Drawing.Point(158, 40);
+            this.startDelayTextBox.Location = new System.Drawing.Point(104, 42);
             this.startDelayTextBox.Name = "startDelayTextBox";
             this.startDelayTextBox.Size = new System.Drawing.Size(96, 21);
             this.startDelayTextBox.TabIndex = 22;
@@ -366,9 +238,9 @@ namespace FFXIV_PerformHelper
             // 
             // resetSettingBtn
             // 
-            this.resetSettingBtn.Location = new System.Drawing.Point(530, 549);
+            this.resetSettingBtn.Location = new System.Drawing.Point(276, 412);
             this.resetSettingBtn.Name = "resetSettingBtn";
-            this.resetSettingBtn.Size = new System.Drawing.Size(260, 23);
+            this.resetSettingBtn.Size = new System.Drawing.Size(235, 23);
             this.resetSettingBtn.TabIndex = 40;
             this.resetSettingBtn.Text = "Reset Settings";
             this.resetSettingBtn.UseVisualStyleBackColor = true;
@@ -385,16 +257,16 @@ namespace FFXIV_PerformHelper
             // 
             // cTextBox
             // 
-            this.cTextBox.Location = new System.Drawing.Point(158, 15);
+            this.cTextBox.Location = new System.Drawing.Point(54, 17);
             this.cTextBox.Name = "cTextBox";
-            this.cTextBox.Size = new System.Drawing.Size(96, 21);
+            this.cTextBox.Size = new System.Drawing.Size(44, 21);
             this.cTextBox.TabIndex = 24;
             this.cTextBox.TextChanged += new System.EventHandler(this.CTextBox_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 45);
+            this.label10.Location = new System.Drawing.Point(112, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(26, 12);
             this.label10.TabIndex = 34;
@@ -402,9 +274,9 @@ namespace FFXIV_PerformHelper
             // 
             // cSharpTextBox
             // 
-            this.cSharpTextBox.Location = new System.Drawing.Point(158, 40);
+            this.cSharpTextBox.Location = new System.Drawing.Point(156, 17);
             this.cSharpTextBox.Name = "cSharpTextBox";
-            this.cSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.cSharpTextBox.Size = new System.Drawing.Size(44, 21);
             this.cSharpTextBox.TabIndex = 25;
             this.cSharpTextBox.TextChanged += new System.EventHandler(this.CSharpTextBox_TextChanged);
             // 
@@ -414,9 +286,9 @@ namespace FFXIV_PerformHelper
             this.groupBox1.Controls.Add(this.noteSpeedTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.startDelayTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(530, 37);
+            this.groupBox1.Location = new System.Drawing.Point(12, 193);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 72);
+            this.groupBox1.Size = new System.Drawing.Size(211, 72);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Music";
@@ -453,25 +325,25 @@ namespace FFXIV_PerformHelper
             this.groupBox2.Controls.Add(this.cTextBox);
             this.groupBox2.Controls.Add(this.cSharpTextBox);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(530, 115);
+            this.groupBox2.Location = new System.Drawing.Point(12, 271);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 399);
+            this.groupBox2.Size = new System.Drawing.Size(499, 135);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sheet";
             // 
             // heightTextBox
             // 
-            this.heightTextBox.Location = new System.Drawing.Point(158, 365);
+            this.heightTextBox.Location = new System.Drawing.Point(372, 98);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(96, 21);
+            this.heightTextBox.Size = new System.Drawing.Size(44, 21);
             this.heightTextBox.TabIndex = 38;
             this.heightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(10, 370);
+            this.label22.Location = new System.Drawing.Point(328, 101);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(40, 12);
             this.label22.TabIndex = 60;
@@ -479,16 +351,16 @@ namespace FFXIV_PerformHelper
             // 
             // widthTextBox
             // 
-            this.widthTextBox.Location = new System.Drawing.Point(158, 340);
+            this.widthTextBox.Location = new System.Drawing.Point(262, 98);
             this.widthTextBox.Name = "widthTextBox";
-            this.widthTextBox.Size = new System.Drawing.Size(96, 21);
+            this.widthTextBox.Size = new System.Drawing.Size(44, 21);
             this.widthTextBox.TabIndex = 37;
             this.widthTextBox.TextChanged += new System.EventHandler(this.WidthText_TextChanged);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 345);
+            this.label21.Location = new System.Drawing.Point(218, 101);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(35, 12);
             this.label21.TabIndex = 58;
@@ -496,16 +368,16 @@ namespace FFXIV_PerformHelper
             // 
             // highCTextBox
             // 
-            this.highCTextBox.Location = new System.Drawing.Point(158, 315);
+            this.highCTextBox.Location = new System.Drawing.Point(54, 98);
             this.highCTextBox.Name = "highCTextBox";
-            this.highCTextBox.Size = new System.Drawing.Size(96, 21);
+            this.highCTextBox.Size = new System.Drawing.Size(44, 21);
             this.highCTextBox.TabIndex = 36;
             this.highCTextBox.TextChanged += new System.EventHandler(this.HighCTextBox_TextChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 320);
+            this.label20.Location = new System.Drawing.Point(10, 101);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(23, 12);
             this.label20.TabIndex = 56;
@@ -513,16 +385,16 @@ namespace FFXIV_PerformHelper
             // 
             // bTextBox
             // 
-            this.bTextBox.Location = new System.Drawing.Point(158, 290);
+            this.bTextBox.Location = new System.Drawing.Point(372, 71);
             this.bTextBox.Name = "bTextBox";
-            this.bTextBox.Size = new System.Drawing.Size(96, 21);
+            this.bTextBox.Size = new System.Drawing.Size(44, 21);
             this.bTextBox.TabIndex = 35;
             this.bTextBox.TextChanged += new System.EventHandler(this.BTextBox_TextChanged);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 295);
+            this.label19.Location = new System.Drawing.Point(328, 74);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(13, 12);
             this.label19.TabIndex = 54;
@@ -530,16 +402,16 @@ namespace FFXIV_PerformHelper
             // 
             // bFlatTextBox
             // 
-            this.bFlatTextBox.Location = new System.Drawing.Point(158, 265);
+            this.bFlatTextBox.Location = new System.Drawing.Point(262, 71);
             this.bFlatTextBox.Name = "bFlatTextBox";
-            this.bFlatTextBox.Size = new System.Drawing.Size(96, 21);
+            this.bFlatTextBox.Size = new System.Drawing.Size(44, 21);
             this.bFlatTextBox.TabIndex = 34;
             this.bFlatTextBox.TextChanged += new System.EventHandler(this.BFlatTextBox_TextChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(10, 270);
+            this.label18.Location = new System.Drawing.Point(218, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(25, 12);
             this.label18.TabIndex = 52;
@@ -547,16 +419,16 @@ namespace FFXIV_PerformHelper
             // 
             // aTextBox
             // 
-            this.aTextBox.Location = new System.Drawing.Point(158, 240);
+            this.aTextBox.Location = new System.Drawing.Point(156, 71);
             this.aTextBox.Name = "aTextBox";
-            this.aTextBox.Size = new System.Drawing.Size(96, 21);
+            this.aTextBox.Size = new System.Drawing.Size(44, 21);
             this.aTextBox.TabIndex = 33;
             this.aTextBox.TextChanged += new System.EventHandler(this.ATextBox_TextChanged);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 245);
+            this.label17.Location = new System.Drawing.Point(112, 74);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(13, 12);
             this.label17.TabIndex = 50;
@@ -564,16 +436,16 @@ namespace FFXIV_PerformHelper
             // 
             // gSharpTextBox
             // 
-            this.gSharpTextBox.Location = new System.Drawing.Point(158, 215);
+            this.gSharpTextBox.Location = new System.Drawing.Point(54, 71);
             this.gSharpTextBox.Name = "gSharpTextBox";
-            this.gSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.gSharpTextBox.Size = new System.Drawing.Size(44, 21);
             this.gSharpTextBox.TabIndex = 32;
             this.gSharpTextBox.TextChanged += new System.EventHandler(this.GSharpTextBox_TextChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 220);
+            this.label16.Location = new System.Drawing.Point(10, 74);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(26, 12);
             this.label16.TabIndex = 48;
@@ -581,16 +453,16 @@ namespace FFXIV_PerformHelper
             // 
             // gTextBox
             // 
-            this.gTextBox.Location = new System.Drawing.Point(158, 190);
+            this.gTextBox.Location = new System.Drawing.Point(372, 44);
             this.gTextBox.Name = "gTextBox";
-            this.gTextBox.Size = new System.Drawing.Size(96, 21);
+            this.gTextBox.Size = new System.Drawing.Size(44, 21);
             this.gTextBox.TabIndex = 31;
             this.gTextBox.TextChanged += new System.EventHandler(this.GTextBox_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 195);
+            this.label15.Location = new System.Drawing.Point(328, 47);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(14, 12);
             this.label15.TabIndex = 46;
@@ -598,16 +470,16 @@ namespace FFXIV_PerformHelper
             // 
             // fSharpTextBox
             // 
-            this.fSharpTextBox.Location = new System.Drawing.Point(158, 165);
+            this.fSharpTextBox.Location = new System.Drawing.Point(262, 44);
             this.fSharpTextBox.Name = "fSharpTextBox";
-            this.fSharpTextBox.Size = new System.Drawing.Size(96, 21);
+            this.fSharpTextBox.Size = new System.Drawing.Size(44, 21);
             this.fSharpTextBox.TabIndex = 30;
             this.fSharpTextBox.TextChanged += new System.EventHandler(this.FSharpTextBox_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 170);
+            this.label14.Location = new System.Drawing.Point(218, 47);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(24, 12);
             this.label14.TabIndex = 44;
@@ -615,16 +487,16 @@ namespace FFXIV_PerformHelper
             // 
             // fTextBox
             // 
-            this.fTextBox.Location = new System.Drawing.Point(158, 140);
+            this.fTextBox.Location = new System.Drawing.Point(156, 44);
             this.fTextBox.Name = "fTextBox";
-            this.fTextBox.Size = new System.Drawing.Size(96, 21);
+            this.fTextBox.Size = new System.Drawing.Size(44, 21);
             this.fTextBox.TabIndex = 29;
             this.fTextBox.TextChanged += new System.EventHandler(this.FTextBox_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 145);
+            this.label13.Location = new System.Drawing.Point(112, 47);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(12, 12);
             this.label13.TabIndex = 42;
@@ -632,16 +504,16 @@ namespace FFXIV_PerformHelper
             // 
             // eTextBox
             // 
-            this.eTextBox.Location = new System.Drawing.Point(158, 115);
+            this.eTextBox.Location = new System.Drawing.Point(54, 44);
             this.eTextBox.Name = "eTextBox";
-            this.eTextBox.Size = new System.Drawing.Size(96, 21);
+            this.eTextBox.Size = new System.Drawing.Size(44, 21);
             this.eTextBox.TabIndex = 28;
             this.eTextBox.TextChanged += new System.EventHandler(this.ETextBox_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 120);
+            this.label12.Location = new System.Drawing.Point(10, 47);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(13, 12);
             this.label12.TabIndex = 40;
@@ -649,16 +521,16 @@ namespace FFXIV_PerformHelper
             // 
             // eFlatTextBox
             // 
-            this.eFlatTextBox.Location = new System.Drawing.Point(158, 90);
+            this.eFlatTextBox.Location = new System.Drawing.Point(372, 17);
             this.eFlatTextBox.Name = "eFlatTextBox";
-            this.eFlatTextBox.Size = new System.Drawing.Size(96, 21);
+            this.eFlatTextBox.Size = new System.Drawing.Size(44, 21);
             this.eFlatTextBox.TabIndex = 27;
             this.eFlatTextBox.TextChanged += new System.EventHandler(this.EFlatTextBox_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 95);
+            this.label11.Location = new System.Drawing.Point(328, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 12);
             this.label11.TabIndex = 38;
@@ -666,16 +538,16 @@ namespace FFXIV_PerformHelper
             // 
             // dTextBox
             // 
-            this.dTextBox.Location = new System.Drawing.Point(158, 65);
+            this.dTextBox.Location = new System.Drawing.Point(262, 17);
             this.dTextBox.Name = "dTextBox";
-            this.dTextBox.Size = new System.Drawing.Size(96, 21);
+            this.dTextBox.Size = new System.Drawing.Size(44, 21);
             this.dTextBox.TabIndex = 26;
             this.dTextBox.TextChanged += new System.EventHandler(this.DTextBox_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 70);
+            this.label8.Location = new System.Drawing.Point(218, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 12);
             this.label8.TabIndex = 36;
@@ -683,9 +555,9 @@ namespace FFXIV_PerformHelper
             // 
             // saveSettingBtn
             // 
-            this.saveSettingBtn.Location = new System.Drawing.Point(530, 520);
+            this.saveSettingBtn.Location = new System.Drawing.Point(10, 412);
             this.saveSettingBtn.Name = "saveSettingBtn";
-            this.saveSettingBtn.Size = new System.Drawing.Size(260, 23);
+            this.saveSettingBtn.Size = new System.Drawing.Size(233, 23);
             this.saveSettingBtn.TabIndex = 39;
             this.saveSettingBtn.Text = "Save Settings";
             this.saveSettingBtn.UseVisualStyleBackColor = true;
@@ -696,7 +568,7 @@ namespace FFXIV_PerformHelper
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 582);
+            this.ClientSize = new System.Drawing.Size(521, 448);
             this.Controls.Add(this.saveSettingBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -704,19 +576,7 @@ namespace FFXIV_PerformHelper
             this.Controls.Add(this.locationYTextBox);
             this.Controls.Add(this.locationXTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.newFileBtn);
-            this.Controls.Add(this.resetBtn);
-            this.Controls.Add(this.applyBtn);
-            this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.insertBtn);
-            this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.durationText);
-            this.Controls.Add(this.octaveComboBox);
-            this.Controls.Add(this.codeComboBox);
-            this.Controls.Add(this.strText);
             this.Controls.Add(this.bpmText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameText);
@@ -748,19 +608,7 @@ namespace FFXIV_PerformHelper
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox bpmText;
-        private System.Windows.Forms.Label strText;
-        private System.Windows.Forms.ComboBox codeComboBox;
-        private System.Windows.Forms.ComboBox octaveComboBox;
-        private System.Windows.Forms.TextBox durationText;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Button removeBtn;
-        private System.Windows.Forms.Button insertBtn;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button applyBtn;
-        private System.Windows.Forms.Button resetBtn;
-        private System.Windows.Forms.Button newFileBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox locationXTextBox;
         private System.Windows.Forms.TextBox locationYTextBox;

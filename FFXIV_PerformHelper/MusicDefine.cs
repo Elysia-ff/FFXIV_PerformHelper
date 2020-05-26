@@ -67,9 +67,11 @@ namespace FFXIV_PerformHelper
             2,
         };
 
+        private static readonly StringBuilder stringBuilder = new StringBuilder();
+
         public static string GetStringCode(Code code, Octave octave)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Remove(0, stringBuilder.Length);
 
             if (octave != Octave.Default)
             {
