@@ -72,8 +72,14 @@
     </Compile>
     <Compile Include="TimeManager.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="XmlDefine.cs" />
-    <Compile Include="SheetManager.cs" />
+    <Compile Include="Xml\Attributes.cs" />
+    <Compile Include="Xml\FFXIVNote.cs" />
+    <Compile Include="Xml\Measure.cs" />
+    <Compile Include="Xml\Note.cs" />
+    <Compile Include="Xml\Part.cs" />
+    <Compile Include="Xml\Pitch.cs" />
+    <Compile Include="Xml\Sheet.cs" />
+    <Compile Include="Xml\XmlExtension.cs" />
     <EmbeddedResource Include="FFXIV_PerformHelper.resx">
       <DependentUpon>FFXIV_PerformHelper.cs</DependentUpon>
     </EmbeddedResource>

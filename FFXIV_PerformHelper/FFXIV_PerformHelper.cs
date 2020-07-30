@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFXIV_PerformHelper.Xml;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -14,13 +15,10 @@ namespace FFXIV_PerformHelper
     {
         public TimeManager TimeManager { get; private set; }
         private OpenFileDialog openDialog;
-
         private SheetWindow sheetWindow;
-
         private XmlDocument loadedXML;
-        private SheetManager sheetManager;
-
         private SheetData sheetData;
+
         public string GetMusicName() { return sheetData.name; }
         public string GetBPM() { return sheetData.bpm.ToString(); }
         public List<Note> GetNotes() { return sheetData.notes; }
@@ -36,7 +34,7 @@ namespace FFXIV_PerformHelper
             TimeManager = new TimeManager();
             openDialog = new OpenFileDialog()
             {
-                Filter = "XML|*.xml",
+                Filter = "XML|*.musicxml",
             };
             sheetWindow = new SheetWindow(this)
             {
@@ -44,7 +42,6 @@ namespace FFXIV_PerformHelper
             };
             sheetWindow.Show();
             loadedXML = new XmlDocument();
-            sheetManager = new SheetManager();
 
             InitializeComponent();
             InitializeSettings();
@@ -133,8 +130,10 @@ namespace FFXIV_PerformHelper
             {
                 directoryText.Text = openDialog.FileName;
                 loadedXML.Load(openDialog.FileName);
-                sheetData = sheetManager.Read(loadedXML);
-                sheetData.Apply();
+                Xml.Sheet s = new Xml.Sheet(loadedXML);
+                List<FFXIVNote> n = s.GetFFXIVNotes();
+                //sheetData = sheetManager.Read(loadedXML);
+                //sheetData.Apply();
 
                 DrawInfo();
                 SetEnable();
